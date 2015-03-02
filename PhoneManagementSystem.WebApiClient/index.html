@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app">
+<head>
+    <title>PhoneSystem</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="styles/app.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header class="navbar navbar-fixed-top">
+        <h2 class="text-center">
+            <a href="#/"><span class="glyphicon glyphicon-earphone"></span></a>
+            Phone Management System
+            <span ng-show="headerUsername" class="no-print">
+                {{headerUsername}}
+                <a href="#/logout">Logout</a>
+            </span>
+        </h2>
+        <div class="navbar-collapse collapse">
+        </div>
+    </header>
+    
+
+    <div class="container">
+        <div class="row">
+
+            <!--Left MENU-->
+            <div ng-switch="isAdmin">
+
+                <!--ADMIN-->
+
+                <div class="col-md-2 no-print" ng-switch-when="true">
+                    <div class="panel">
+                        <div>
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#/admin/home">Home</a></li>
+                                <li><a href="#/admin/orders">Card Orders</a></li>
+                                <li><a href="#/admin/users">Users</a></li>
+                                <li><a href="#/admin/phones">Phones</a></li>
+                                <li><a href="#/admin/departments">Departments</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div ng-switch="location">
+                        <div class="panel">
+                            <div ng-switch-when="orders">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li><a href="#/admin/orders/give">Give Card</a></li>
+                                    <li><a href="#/admin/orders/take">Take Card</a></li>
+                                </ul>
+                            </div>
+
+                            <div ng-switch-when="phones">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li><a href="#/admin/phones/1">1</a></li>
+                                    <li><a href="#/admin/phones/2">2</a></li>
+                                    <li><a href="#/admin/phones/3">3</a></li>
+                                    <li><a href="#/admin/phones/4">4</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <!--User-->
+                <div class="col-md-2" ng-switch-when="false">
+                    <div>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="#/user/home">Home</a></li>
+                            <li><a href="#/user/phonebook">Phonebook</a></li>
+                            <li><a href="#/user/bills">Bills</a></li>
+                            <li><a href="#/user/profile">Profile</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!--Public-->
+                <div class="col-md-2" ng-switch-default>
+
+                </div>
+
+                <!--Left MENU-->
+                <!--MAIN-->
+                <div class="col-md-8">
+                    <div ng-view>  </div>
+                </div>
+                <!--MAIN-->
+                <!--RIGHT MENU-->
+                <div class="col-md-2">
+                    <div>  </div>
+                </div>
+                <!--RIGHT MENU-->
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/noty/js/noty/jquery.noty.js"></script>
+    <script src="bower_components/StickyTableHeaders/js/jquery.stickytableheaders.js"></script>
+
+    <script src="app.js"></script>
+
+    <script src="services/baseUrl.js"></script>
+    <script src="services/requester.js"></script>
+    <script src="services/adminRequests.js"></script>
+    <script src="services/userRequests.js"></script>
+    <script src="services/userSession.js"></script>
+    <script src="services/transplateNamesToEng.js"></script>
+
+
+    <script src="controllers/public/LoginController.js"></script>
+
+    <script src="controllers/admin/AdminDepartmentsController.js"></script>
+    <script src="controllers/admin/AdminHomeController.js"></script>
+    <script src="controllers/admin/AdminPhonesController.js"></script>
+    <script src="controllers/admin/AdminUsersController.js"></script>
+
+    <script src="controllers/admin/order/AdminOrdersController.js"></script>
+    <script src="controllers/admin/order/AdminGiveOrderController.js"></script>
+    <script src="controllers/admin/order/AdminTakeOrderController.js"></script>
+
+    <script src="controllers/admin/user/AdminAddUserController.js"></script>
+    <script src="controllers/admin/user/AdminDeleteUserController.js"></script>
+    <script src="controllers/admin/user/AdminEditUserController.js"></script>
+
+
+    <script>
+
+        
+    </script>
+
+</body>
+</html>

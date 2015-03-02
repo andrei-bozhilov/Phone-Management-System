@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneManagementSystem.Data", "PhoneManagementSystem.Data\PhoneManagementSystem.Data.csproj", "{A06ADD43-C377-45E0-9E1B-AC4D4889AF98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneManagementSystem.Models", "PhoneManagementSystem.Models\PhoneManagementSystem.Models.csproj", "{ED62E0E5-801D-43DF-B283-87C58B1F983B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneManagementSystem.WebApi", "PhoneManagementSystem.WebApi\PhoneManagementSystem.WebApi.csproj", "{2E421C7E-E2B3-4091-A94C-374DE1DCC94D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneManagementSystem.WebApi.Tests", "PhoneManagementSystem.WebApi.Tests\PhoneManagementSystem.WebApi.Tests.csproj", "{B4264D13-3A69-46E5-8AF3-9BE35176D9FA}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PhoneManagementSystem.WebApiClient", "http://localhost:42688", "{C05182CC-FEDB-4E3C-93EB-823B8EA4D47D}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_42688"
+		Debug.AspNetCompiler.PhysicalPath = "PhoneManagementSystem.WebApiClient\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_42688\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_42688"
+		Release.AspNetCompiler.PhysicalPath = "PhoneManagementSystem.WebApiClient\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_42688\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "PhoneManagementSystem.WebApiClient\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A06ADD43-C377-45E0-9E1B-AC4D4889AF98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A06ADD43-C377-45E0-9E1B-AC4D4889AF98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A06ADD43-C377-45E0-9E1B-AC4D4889AF98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A06ADD43-C377-45E0-9E1B-AC4D4889AF98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED62E0E5-801D-43DF-B283-87C58B1F983B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED62E0E5-801D-43DF-B283-87C58B1F983B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED62E0E5-801D-43DF-B283-87C58B1F983B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED62E0E5-801D-43DF-B283-87C58B1F983B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E421C7E-E2B3-4091-A94C-374DE1DCC94D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E421C7E-E2B3-4091-A94C-374DE1DCC94D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E421C7E-E2B3-4091-A94C-374DE1DCC94D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E421C7E-E2B3-4091-A94C-374DE1DCC94D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4264D13-3A69-46E5-8AF3-9BE35176D9FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4264D13-3A69-46E5-8AF3-9BE35176D9FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4264D13-3A69-46E5-8AF3-9BE35176D9FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4264D13-3A69-46E5-8AF3-9BE35176D9FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C05182CC-FEDB-4E3C-93EB-823B8EA4D47D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C05182CC-FEDB-4E3C-93EB-823B8EA4D47D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C05182CC-FEDB-4E3C-93EB-823B8EA4D47D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{C05182CC-FEDB-4E3C-93EB-823B8EA4D47D}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

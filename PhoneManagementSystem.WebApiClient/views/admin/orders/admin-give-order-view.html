@@ -1,0 +1,92 @@
+﻿<h2>Give card</h2>
+<div class="panel">
+    <div class="panel-body">
+        <div class="col-md-6">
+            <div class="panel">
+                <form>
+                    <div class="form-group">
+                        <label for="fullname">Full Name:</label>
+                        <input type="text" class="form-control" ng-model="userData.fullname" ng-change="change(userData.fullname)" id="fullname" placeholder="Enter full name">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="departmentId">Department</label>{{departmentId}}
+                        <select ng-model="userData.departmentId" ng-options="department.Id as department.Name for department in departments">
+                            <option value="">(Choose department)</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel">
+                <form>
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control" ng-model="userData.username" id="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="text" class="form-control" ng-model="userData.password" id="password">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <input type="button" value="Give card" />
+        {{userData}}
+    </div>
+</div>
+
+<h2>Available Phones</h2>
+
+<div class="panel">
+    <div class="panel-body">
+        <div class="fix-table">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Number
+                        </th>
+                        <th>
+                            Has Rouming
+                        </th>
+                        <th>
+                            Credit Limit
+                        </th>
+                        <th>
+                            Card Type
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="phone in availablePhones">
+                        <td>
+                            {{phone.id}}
+                        </td>
+                        <td>
+                            {{phone.number}}
+                        </td>
+                        <td>
+                            {{phone.hasRouming}}
+                        </td>
+                        <td>
+                            {{phone.creditLimit}}
+                        </td>
+                        <td>
+                            {{phone.cardType}}
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
