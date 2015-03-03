@@ -5,15 +5,38 @@
 
     $scope.departments = {};
     $scope.userData = {};
-    $scope.availablePhones = {}
+    $scope.availablePhones = []
 
     $scope.userData.fullname = "";
     $scope.userData.username = "";
     $scope.userData.password = "";
 
     $scope.userData.departmentId = "";
+    $scope.userData.phoneId = "";
 
-    $scope.change = function (data) {
+    $scope.phoneNumber = "";
+    $scope.departmentName = "";
+
+    $scope.date = new Date();
+
+
+    $scope.changeNumber = function (data) {
+        $scope.availablePhones.forEach(function (x) {
+            if (x.id == data) {
+                $scope.phoneNumber = x.number;
+            }
+        });
+    };
+
+    $scope.changeDepartment = function (data) {
+        $scope.departments.forEach(function (x) {
+            if (x.Id == data) {
+                $scope.departmentName = x.Name;
+            }
+        });
+    };
+
+    $scope.changeFullname = function (data) {
         $scope.userData.username = transplateNameToEng(data);
         $scope.userData.password = $scope.userData.username;
     };

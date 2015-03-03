@@ -13,7 +13,7 @@ namespace PhoneManagementSystem.WebApi
     {
         public static void Register(HttpConfiguration config)
         {
-            var cors = new EnableCorsAttribute("http://localhost:38027", "*", "*");
+            var cors = new EnableCorsAttribute("http://localhost:42688", "*", "*");
             config.EnableCors(cors);
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.

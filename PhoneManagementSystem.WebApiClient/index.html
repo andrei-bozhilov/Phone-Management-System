@@ -19,83 +19,144 @@
         <div class="navbar-collapse collapse">
         </div>
     </header>
-    
+
 
     <div class="container">
         <div class="row">
-
             <!--Left MENU-->
-            <div ng-switch="isAdmin">
+            <div class="col-md-2 no-print">
+                <nav ng-switch="isAdmin" class="side-menu" data-spy="affix" data-offset-top="0">
 
-                <!--ADMIN-->
+                    <!--ADMIN-->
+                    <div ng-switch-when="true">
+                        <div class="panel">
+                            <div>
+                                <ul class="nav nav-pills nav-stacked ">
+                                    <li><a href="#/admin/home">Home</a></li>
+                                    <li><a href="#/admin/orders">Card Orders</a></li>
+                                    <li><a href="#/admin/users">Users</a></li>
+                                    <li><a href="#/admin/phones">Phones</a></li>
+                                    <li><a href="#/admin/departments">Departments</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div ng-switch="location">
+                            <div class="panel">
+                                <div ng-switch-when="orders">
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li><a href="#/admin/orders/give">Give Card</a></li>
+                                        <li><a href="#/admin/orders/take">Take Card</a></li>
+                                    </ul>
+                                </div>
 
-                <div class="col-md-2 no-print" ng-switch-when="true">
-                    <div class="panel">
-                        <div>
+                                <div ng-switch-when="phones">
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li><a href="#/admin/phones/1">1</a></li>
+                                        <li><a href="#/admin/phones/2">2</a></li>
+                                        <li><a href="#/admin/phones/3">3</a></li>
+                                        <li><a href="#/admin/phones/4">4</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <!--User-->
+                    <div ng-switch-when="false">
+                        <div class="panel">
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#/admin/home">Home</a></li>
-                                <li><a href="#/admin/orders">Card Orders</a></li>
-                                <li><a href="#/admin/users">Users</a></li>
-                                <li><a href="#/admin/phones">Phones</a></li>
-                                <li><a href="#/admin/departments">Departments</a></li>
+                                <li><a href="#/user/home">Home</a></li>
+                                <li><a href="#/user/phonebook">Phonebook</a></li>
+                                <li><a href="#/user/bills">Bills</a></li>
+                                <li><a href="#/user/profile">Profile</a></li>
+
                             </ul>
                         </div>
                     </div>
-                    <div ng-switch="location">
+
+
+                    <!--Public-->
+                    <div ng-switch-default>
+
+                    </div>
+
+                </nav>
+            </div>
+
+
+
+
+            <!--MAIN-->
+            <div class="col-md-8">
+                <div ng-view>  </div>
+            </div>
+
+
+            <div class="col-md-2 no-print">
+                <nav ng-switch="isAdmin" class="side-menu" data-spy="affix" data-offset-top="0">
+
+                    <!--ADMIN-->
+                    <div ng-switch-when="true">
                         <div class="panel">
-                            <div ng-switch-when="orders">
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="#/admin/orders/give">Give Card</a></li>
-                                    <li><a href="#/admin/orders/take">Take Card</a></li>
-                                </ul>
-                            </div>
-
-                            <div ng-switch-when="phones">
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="#/admin/phones/1">1</a></li>
-                                    <li><a href="#/admin/phones/2">2</a></li>
-                                    <li><a href="#/admin/phones/3">3</a></li>
-                                    <li><a href="#/admin/phones/4">4</a></li>
-
+                            <div>
+                                <ul class="nav nav-pills nav-stacked ">
+                                    <li><a href="#/admin/home">Home</a></li>
+                                    <li><a href="#/admin/orders">Card Orders</a></li>
+                                    <li><a href="#/admin/users">Users</a></li>
+                                    <li><a href="#/admin/phones">Phones</a></li>
+                                    <li><a href="#/admin/departments">Departments</a></li>
                                 </ul>
                             </div>
                         </div>
+                        <div ng-switch="location">
+                            <div class="panel">
+                                <div ng-switch-when="orders">
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li><a href="#/admin/orders/give">Give Card</a></li>
+                                        <li><a href="#/admin/orders/take">Take Card</a></li>
+                                    </ul>
+                                </div>
+
+                                <div ng-switch-when="phones">
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li><a href="#/admin/phones/1">1</a></li>
+                                        <li><a href="#/admin/phones/2">2</a></li>
+                                        <li><a href="#/admin/phones/3">3</a></li>
+                                        <li><a href="#/admin/phones/4">4</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
 
 
 
+                    <!--User-->
+                    <div ng-switch-when="false">
+                        <div class="panel">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#/user/home">Home</a></li>
+                                <li><a href="#/user/phonebook">Phonebook</a></li>
+                                <li><a href="#/user/bills">Bills</a></li>
+                                <li><a href="#/user/profile">Profile</a></li>
 
-                <!--User-->
-                <div class="col-md-2" ng-switch-when="false">
-                    <div>
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#/user/home">Home</a></li>
-                            <li><a href="#/user/phonebook">Phonebook</a></li>
-                            <li><a href="#/user/bills">Bills</a></li>
-                            <li><a href="#/user/profile">Profile</a></li>
-
-                        </ul>
+                            </ul>
+                        </div>
                     </div>
-                </div>
 
 
-                <!--Public-->
-                <div class="col-md-2" ng-switch-default>
+                    <!--Public-->
+                    <div ng-switch-default>
 
-                </div>
+                    </div>
 
-                <!--Left MENU-->
-                <!--MAIN-->
-                <div class="col-md-8">
-                    <div ng-view>  </div>
-                </div>
-                <!--MAIN-->
-                <!--RIGHT MENU-->
-                <div class="col-md-2">
-                    <div>  </div>
-                </div>
-                <!--RIGHT MENU-->
+                </nav>
             </div>
         </div>
     </div>
@@ -139,7 +200,7 @@
 
     <script>
 
-        
+
     </script>
 
 </body>

@@ -65,7 +65,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PhoneManagmentSystem.Models\PhoneManagementSystem.Models.csproj">
+    <ProjectReference Include="..\PhoneManagementSystem.Models\PhoneManagementSystem.Models.csproj">
       <Project>{ed62e0e5-801d-43df-b283-87c58b1f983b}</Project>
       <Name>PhoneManagementSystem.Models</Name>
     </ProjectReference>
