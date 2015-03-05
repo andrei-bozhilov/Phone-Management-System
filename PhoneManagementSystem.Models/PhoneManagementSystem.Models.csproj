@@ -7,7 +7,7 @@
     <ProjectGuid>{ED62E0E5-801D-43DF-B283-87C58B1F983B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PhoneManagmentSystem.Models</RootNamespace>
+    <RootNamespace>PhoneManagementSystem.Models</RootNamespace>
     <AssemblyName>PhoneManagmentSystem.Models</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CardType.cs" />
+    <Compile Include="JobTitle.cs" />
     <Compile Include="PhoneAction.cs" />
     <Compile Include="PhoneNumberOrder.cs" />
     <Compile Include="PhoneStatus.cs" />

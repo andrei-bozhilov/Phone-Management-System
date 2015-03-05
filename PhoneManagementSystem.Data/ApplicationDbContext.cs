@@ -5,6 +5,7 @@
 
     using PhoneManagementSystem.Models;
     using PhoneManagementSystem.Data.Migrations;
+    
 
     public class ApplicationDbContext : IdentityDbContext<User>
     {
@@ -20,6 +21,8 @@
 
         public IDbSet<PhoneNumberOrder> PhoneNumberOrders { get; set; }
 
+        public IDbSet<JobTitle> JobTitles { get; set; }
+        
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
@@ -31,13 +34,13 @@
 
             modelBuilder.Entity<PhoneNumberOrder>()
                     .HasRequired(m => m.Admin)
-                    .WithMany(t => t.GivePhoneNumberOrders)
+                    .WithMany(t => t.UserPhoneNumberOrders)
                     .HasForeignKey(m => m.AdminId)
                     .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PhoneNumberOrder>()
                         .HasRequired(m => m.User)
-                        .WithMany(t => t.TakePhoneNumberOrders)
+                        .WithMany(t => t.AdminPhoneNumberOrders)
                         .HasForeignKey(m => m.UserId)
                         .WillCascadeOnDelete(false);
         }

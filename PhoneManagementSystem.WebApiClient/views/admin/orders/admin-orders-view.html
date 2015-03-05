@@ -1,51 +1,53 @@
-﻿<div>
-    <h2>Orders</h2>
-    <div class="scrollable-area">
-        <table class="table table-bordered table-hover table-striped">
-            <thead>
-                <tr>
-                    <th>
-                        Id
-                    </th>
-                    <th>
-                        Username
-                    </th>
-                    <th>
-                        Phone
-                    </th>
-                    <th>
-                        AdminUser
-                    </th>
-                    <th>
-                        Data
-                    </th>
-                    <th>
-                        Action
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="order in orders">
-                    <td>
-                        {{order.orderId}}
-                    </td>
-                    <td>
-                        {{order.userName}}
-                    </td>
-                    <td>
-                        {{order.phone}}
-                    </td>
-                    <td>
-                        {{order.admin}}
-                    </td>
-                    <td>
-                        {{order.date | date:'MM/dd/yyyy @ HH:mm'}}
-                    </td>
-                    <td>
-                        {{order.action}}
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+﻿<div class="col-md-10">
+    <div>
+        <h2>Orders</h2>
+        <div class="scrollable-area">
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Username
+                        </th>
+                        <th>
+                            Phone
+                        </th>
+                        <th>
+                            AdminUser
+                        </th>
+                        <th>
+                            Data
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="order in orders">
+                        <td>
+                            {{order.orderId}}
+                        </td>
+                        <td>
+                            {{order.userName}}
+                        </td>
+                        <td>
+                            {{order.phone}}
+                        </td>
+                        <td>
+                            {{order.admin}}
+                        </td>
+                        <td>
+                            {{order.date | date:'MM/dd/yyyy @ HH:mm'}}
+                        </td>
+                        <td>
+                            {{order.action}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

@@ -30,9 +30,10 @@ namespace PhoneManagementSystem.Data.Migrations
                 return;
             }
 
+            var jobTitles = this.SeedJobTitles(context);
             var departments = this.SeedDepartment(context);
             var phones = this.SeedPhones(context);
-            var users = this.SeedUsers(context);
+            var users = this.SeedUsers(context, jobTitles, departments);
             this.SeedPhonesUsersOrders(context, phones, users);
         }
 
@@ -82,6 +83,23 @@ namespace PhoneManagementSystem.Data.Migrations
             return departments;
         }
 
+        private IList<JobTitle> SeedJobTitles(ApplicationDbContext context)
+        {
+            var jobTitleNames = new string[] { "admin", "expert" };
+            var jobTiles = new List<JobTitle>();
+
+            foreach (var jobTitleName in jobTitleNames)
+            {
+                var jobTitle = new JobTitle { Name = jobTitleName };
+                context.JobTitles.Add(jobTitle);
+                jobTiles.Add(jobTitle);
+            }
+
+            context.SaveChanges();
+
+            return jobTiles;
+        }
+
         private IList<Phone> SeedPhones(ApplicationDbContext context)
         {
             var phones = new List<Phone>();
@@ -113,7 +131,7 @@ namespace PhoneManagementSystem.Data.Migrations
             return phones;
         }
 
-        private ICollection<User> SeedUsers(ApplicationDbContext context)
+        private ICollection<User> SeedUsers(ApplicationDbContext context, IList<JobTitle> jobTitles, IList<Department> departments)
         {
             var usernames = new string[] { "admin", "maria", "peter", "kiro", "didi" };
 
@@ -139,7 +157,9 @@ namespace PhoneManagementSystem.Data.Migrations
                     FullName = name,
                     Email = username + "@gmail.com",
                     EmployeeNumber = ++i,
-                    IsActive = true
+                    IsActive = true,
+                    Department = departments[this.random.Next(0,departments.Count())],
+                    JobTitle = jobTitles[this.random.Next(0, jobTitles.Count())]
                 };
 
                 var password = username;
@@ -164,6 +184,7 @@ namespace PhoneManagementSystem.Data.Migrations
 
             // Add "admin" user to "Administrator" role
             var adminUser = users.First(user => user.UserName == "admin");
+            adminUser.JobTitle = context.JobTitles.Where(jt => jt.Name == "admin").First();
             var addAdminRoleResult = userManager.AddToRole(adminUser.Id, "Administrator");
             if (!addAdminRoleResult.Succeeded)
             {

@@ -13,11 +13,12 @@ using PhoneManagementSystem.Models;
 
 namespace PhoneManagementSystem.WebApi.Controllers
 {
-    [RoutePrefix("api/department")]
+    [RoutePrefix("api/Departments")]
     public class DepartmentsController : BaseApiController
     {
-        
-        public DepartmentsController(PhoneSystemData data):base(data)
+
+        public DepartmentsController(PhoneSystemData data)
+            : base(data)
         {
         }
 
@@ -27,29 +28,38 @@ namespace PhoneManagementSystem.WebApi.Controllers
         }
 
         // GET api/Departments
-        /// <returns>List of all towns sorted by Id</returns>
+        /// <returns>List of all departments sorted by Name</returns>
         [HttpGet]
-        public IEnumerable<Department> GetDepartment()
+        public IHttpActionResult GetDepartment()
         {
-            var department = this.Data.Departments.All().OrderBy(dep => dep.Name).ToList();
-            return department;
+            var department = this.Data.Departments.All()
+                .OrderBy(dep => dep.Name)
+                .Select(dep => new
+                {
+                    id = dep.Id,
+                    name = dep.Name
+                })
+                .ToList();
+
+            return Ok(department);
         }
 
         /// <summary>
         ///     GET api/Departments/deprtmentId
         /// </summary>
-        /// <returns>Get town by id</returns>
+        /// <returns>Get department by id</returns>
         public IHttpActionResult GetDepartmentById(int id)
         {
-            var dep = this.Data.Departments
+            var department = this.Data.Departments
                 .All()
                 .FirstOrDefault(x => x.Id == id);
-            if (dep == null)
+
+            if (department == null)
             {
                 return this.BadRequest("Department #" + id + " not found!");
             }
 
-            return this.Ok(dep);
+            return this.Ok(department);
         }
     }
 }

@@ -25,8 +25,22 @@
             return requester.get(url);
         },
 
+        getAllJobTitles: function () {
+            url = baseUrl + 'jobTitles';
+
+            return requester.get(url);
+        },
+
         getAllOrders: function () {
             url = baseUrl + 'admin/orders';
+            headers = {
+                Authorization: 'Bearer ' + userSession.getToken()
+            };
+
+            return requester.get(url, headers);
+        },
+        getAllUsers: function () {
+            url = baseUrl + 'admin/users';
             headers = {
                 Authorization: 'Bearer ' + userSession.getToken()
             };

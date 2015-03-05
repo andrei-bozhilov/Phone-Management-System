@@ -145,3 +145,5 @@
 /// <reference path="../bower_components/noty/js/noty/themes/default.js" />
 /// <reference path="../bower_components/noty/js/noty/themes/relax.js" />
 /// <reference path="../services/notyService.js" />
+/// <reference path="../bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.min.js" />
+/// <reference path="../bower_components/angular-ui-bootstrap-bower/ui-bootstrap.min.js" />

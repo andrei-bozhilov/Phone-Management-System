@@ -10,6 +10,7 @@
     using System.Net.Http;
     using System.Web.Http;
     using System.Threading;
+    using System.Threading.Tasks;
     using System.Text;
 
     using Microsoft.AspNet.Identity;
@@ -18,9 +19,6 @@
     using PhoneManagementSystem.Data;
     using PhoneManagementSystem.Models;
     using PhoneManagementSystem.WebApi.Models.Admin;
-    using System.Threading.Tasks;
-
-
     using PhoneManagementSystem.WebApi.Models.User;
 
 
@@ -82,7 +80,8 @@
                 {
                     username = "",
                     fullname = "",
-                    department = "",
+                    jobTitle = "",
+                    department = ""
 
 
                 } : x.PhoneNumberOrders.OrderByDescending(order => order.ActionDate).Select(user =>
@@ -90,11 +89,12 @@
                     {
                         username = user.User.UserName,
                         fullname = user.User.FullName,
+                        jobTitle = user.User.JobTitle.Name,
                         department = user.User.Department.Name,
                     }
                 ).FirstOrDefault()
 
-            }).ToList().OrderBy(x => x.number);
+            }).ToList().OrderBy(x => x.userInfo.username);
 
             return this.Ok(phoneToReturn);
 
@@ -121,6 +121,8 @@
             {
                 UserName = model.Username,
                 FullName = model.FullName,
+                JobTitleId = model.JobTitleId,
+                DepartmetId = model.DepartmentId,
                 IsActive = true
             };
 
@@ -174,6 +176,7 @@
                 id = x.Id,
                 userName = x.UserName,
                 fullName = x.FullName,
+                jobTitle = x.JobTitle.Name,
                 departmentName = x.Department.Name,
                 isActive = x.IsActive
             });
@@ -353,7 +356,7 @@
                 return this.BadRequest("There is no admin with this id " + adminId + " Please login again.");
             }
 
-            var phone = user.TakePhoneNumberOrders.OrderBy(x => x.ActionDate).LastOrDefault().Phone;
+            var phone = user.AdminPhoneNumberOrders.OrderBy(x => x.ActionDate).LastOrDefault().Phone;
 
             //check is there is same order
             var orders = this.Data.PhoneNumberOrders.All()

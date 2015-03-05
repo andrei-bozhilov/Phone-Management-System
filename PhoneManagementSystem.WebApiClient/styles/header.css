@@ -1,7 +1,7 @@
 ﻿header {
   background-color: ActiveCaption;
 }
-header span {
+header #username span {
   padding-left: 8%;
 }
 /*# sourceMappingURL=header.css.map */

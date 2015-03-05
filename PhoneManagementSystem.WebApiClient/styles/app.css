@@ -1,7 +1,7 @@
 ﻿header {
   background-color: ActiveCaption;
 }
-header span {
+header #username span {
   padding-left: 8%;
 }
 .fix-table {
@@ -67,6 +67,12 @@ h6 {
 }
 body {
   padding-top: 70px;
+}
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+  cursor: pointer;
 }
 @media print {
   .no-print {

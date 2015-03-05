@@ -4,17 +4,23 @@ namespace PhoneManagementSystem.WebApi.Models.User
     public class RegisterUserBindingModel
     {
         [Required]
-        [Display(Name="Username")]
+        [Display(Name = "Username")]
         public string Username { get; set; }
 
         [Required]
-        [Display(Name="Password")]
+        [Display(Name = "Password")]
         [DataType(DataType.Password)]
         [MinLength(3)]
-        public string Password { get; set; }       
+        public string Password { get; set; }
 
         [Required]
-        [Display(Name="FullName")]
-        public string FullName { get; set; }        
+        [Display(Name = "FullName")]
+        public string FullName { get; set; }
+
+        [Display(Name = "JobTitleId")]
+        public int? JobTitleId { get; set; }
+
+        [Display(Name = "DepartmentId")]
+        public int? DepartmentId { get; set; }
     }
 }

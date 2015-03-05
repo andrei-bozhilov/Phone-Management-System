@@ -15,6 +15,8 @@
 
         IRepository<Phone> Phones { get; }
 
+        IRepository<JobTitle> JobTitles { get; }
+
         IRepository<PhoneNumberOrder> PhoneNumberOrders { get; }
 
         int SaveChanges();

@@ -9,13 +9,14 @@
    
     public class User : IdentityUser
     {
-        private ICollection<PhoneNumberOrder> givePhoneNumberOrders;
-        private ICollection<PhoneNumberOrder> takePhoneNumberOrders;
+        private ICollection<PhoneNumberOrder> userPhoneNumberOrders;
+        private ICollection<PhoneNumberOrder> adminPhoneNumberOrders;
 
         public User()
         {
-            this.GivePhoneNumberOrders = new HashSet<PhoneNumberOrder>();
-            this.TakePhoneNumberOrders = new HashSet<PhoneNumberOrder>();
+            this.UserPhoneNumberOrders = new HashSet<PhoneNumberOrder>();
+            this.AdminPhoneNumberOrders = new HashSet<PhoneNumberOrder>();
+            
         }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager, string authenticationType)
         {
@@ -31,20 +32,24 @@
 
         public int EmployeeNumber { get; set; }
 
+        public int? JobTitleId { get; set; }
+
+        public virtual JobTitle JobTitle { get; set; }
+
         public int? DepartmetId { get; set; }
 
         public virtual Department Department { get; set; }
 
-        public virtual ICollection<PhoneNumberOrder> GivePhoneNumberOrders
+        public virtual ICollection<PhoneNumberOrder> UserPhoneNumberOrders
         { 
-            get {return this.givePhoneNumberOrders ;}
-            set {this.givePhoneNumberOrders = value ;}
+            get {return this.userPhoneNumberOrders ;}
+            set {this.userPhoneNumberOrders = value ;}
         }
 
-        public virtual ICollection<PhoneNumberOrder> TakePhoneNumberOrders
+        public virtual ICollection<PhoneNumberOrder> AdminPhoneNumberOrders
         {
-            get { return this.takePhoneNumberOrders; }
-            set { this.takePhoneNumberOrders = value; }
+            get { return this.adminPhoneNumberOrders; }
+            set { this.adminPhoneNumberOrders = value; }
         }
     }
 }

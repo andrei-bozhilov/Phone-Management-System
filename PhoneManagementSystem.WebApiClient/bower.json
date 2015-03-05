@@ -19,6 +19,7 @@
     "jquery": "~2.1.3",
     "bootstrap": "~3.3.2",
     "noty": "~2.3.4",
-    "StickyTableHeaders": "~0.1.12"
+    "StickyTableHeaders": "~0.1.12",
+    "angular-ui-bootstrap-bower": "~0.12.1"
   }
 }

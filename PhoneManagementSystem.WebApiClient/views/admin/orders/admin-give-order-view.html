@@ -1,66 +1,123 @@
-﻿<div class="no-print">
-    <h2>Give card</h2>
-    <div class="panel">
-        <div class="panel-body">
-            <div class="col-md-6">
-                <div class="panel">
-                    <form>
-                        <div class="form-group">
-                            <label for="fullname">Full Name:</label>
-                            <input type="text" class="form-control" ng-model="userData.fullname"
-                                   ng-change="changeFullname(userData.fullname)" id="fullname" placeholder="Enter full name">
+﻿<div class="col-md-10">
+    <div class="no-print">
+        <h2>Give card</h2>
+        <div class="panel">
+            <div class="panel-body">
+                <!--Tabs-->
+                <tabset>
+                    <!--First Tab-->
+                    <tab heading="New User">
+                        <br />
+                        <div class="col-md-6">
+                            <div class="panel">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="fullname">Full Name:</label>
+                                        <input type="text" class="form-control" ng-model="userData.fullname"
+                                               ng-change="changeFullname(userData.fullname)" id="fullname" placeholder="Enter full name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="departmentId">Department:</label>{{departmentId}}
+                                        <select class="form-control" ng-model="userData.departmentId" id="departmentId"
+                                                ng-options="department.id as department.name for department in departments"
+                                                ng-change="changeDepartment(userData.departmentId)">
+                                            <option value="">(Choose department)</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phoneId">Phone:</label>
+                                        <select class="form-control" ng-model="userData.phoneId" id="phoneId"
+                                                ng-options="availablePhone.id as availablePhone.number for availablePhone in availablePhones"
+                                                ng-change="changeNumber(userData.phoneId)">
+                                            <option value="">(Choose number)</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="departmentId">Department:</label>{{departmentId}}
-                            <select class="form-control" ng-model="userData.departmentId"
-                                    ng-options="department.Id as department.Name for department in departments"
-                                    ng-change="changeDepartment(userData.departmentId)">
-                                <option value="">(Choose department)</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="phoneId">Phone:</label>{{departmentId}}
-                            <select class="form-control" ng-model="userData.phoneId"
-                                    ng-options="availablePhone.id as availablePhone.number for availablePhone in availablePhones"
-                                    ng-change="changeNumber(userData.phoneId)">
-                                <option value="">(Choose number)</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-            </div>
 
-            <div class="col-md-6">
-                <div class="panel">
-                    <form>
-                        <div class="form-group">
-                            <label for="username">Username:</label>
-                            <input type="text" class="form-control" ng-model="userData.username" id="username">
+                        <div class="col-md-6">
+                            <div class="panel">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="username">Username:</label>
+                                        <input type="text" class="form-control" ng-model="userData.username" id="username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Password:</label>
+                                        <input type="text" class="form-control" ng-model="userData.password" id="password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="jobTitleId">Job Title:</label>
+                                        <select class="form-control" ng-model="userData.jobTitleId" id="jobTitleId"
+                                                ng-options="jobTitle.id as jobTitle.jobTitleName for jobTitle in jobTitles"
+                                                ng-change="changeJobTitle(userData.jobTitleId)">
+                                            <option value="">(Choose job title)</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="btn btn-primary" ng-click="giveCardNewUser()">Give card</div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="password">Password:</label>
-                            <input type="text" class="form-control" ng-model="userData.password" id="password">
+                    </tab> <!--First Tab END-->
+                    <!--Second Tab-->
+                    <tab heading="Old User">
+                        <br />
+                        <div class="col-md-6">
+                            <form>
+                                <div class="form-group">
+                                    <label for="fullname">User's full name:</label>
+                                    <input type="text" ng-model="fullname" id="fullname" ng-click="getAllUsers()"
+                                           typeahead-on-select='onSelect($item, $model, $label)'
+                                           typeahead="user.fullName for user in users | filter:$viewValue | limitTo:8" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phoneId">Phone:</label>
+                                    <select class="form-control" ng-model="userData.phoneId"
+                                            ng-options="availablePhone.id as availablePhone.number for availablePhone in availablePhones"
+                                            ng-change="changeNumber(userData.phoneId)">
+                                        <option value="">(Choose number)</option>
+                                    </select>
+                                </div>
+                                <form>
                         </div>
-                        <div class="form-group">
-                            <label for="phoneId">Job Title:</label>{{departmentId}}
-                            <select class="form-control" ng-model="userData.phoneId"
-                                    ng-options="availablePhone.id as availablePhone.number for availablePhone in availablePhones"
-                                    ng-change="changeNumber(userData.phoneId)">
-                                <option value="">(Choose number)</option>
-                            </select>
+                        <div class="col-md-6">
+                            <form>
+                                <div class="form-group">
+                                    <label>Department:</label>
+                                    <input type="text" ng-model="user.departmentName" class="form-control" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label>Job title:</label>
+                                    <input type="text" ng-model="user.jobTitle" class="form-control" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label>Is active:</label>
+                                    {{user.isActive}}
+                                    <input type="radio" ng-model="user.isActive" ng-value="true" disabled><label>Yes</label>
+                                    <input type="radio" ng-model="user.isActive" ng-value="false" disabled><label>No</label>
+                                    <div class="form-group">
+                                        <div class="btn btn-primary" ng-click="giveCardOldUser()">Give card</div>
+                                    </div>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <div class="btn btn-primary">Give card</div>
-                        </div>
-                    </form>
-                </div>
+                    </tab> <!--Second Tab END-->
+                </tabset>
             </div>
         </div>
+        <h2>Preview</h2>
     </div>
-    {{userData}}
-
-    <h2>Preview</h2>
 </div>
 
-<div ng-include='"../../../templates/admin-order-give-card-template.html"'></div>
-<div class="visible-print" ng-include='"../../../templates/admin-order-give-card-template.html"'></div>
+<div class="col-md-10">
+    <div ng-include='"../../../templates/admin-order-give-card-template.html"'></div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <div class="visible-print" ng-include='"../../../templates/admin-order-give-card-template.html"'></div>
+</div>
