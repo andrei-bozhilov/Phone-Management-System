@@ -1,0 +1,1 @@
+﻿.side-menu.affix{position:fixed;top:70px}@media(min-width:768px) and (max-width:979px){.side-menu.affix{width:100% !important}.side-menu.affix{position:relative;top:auto}}@media(max-width:767px){.side-menu.affix{width:100% !important}.side-menu.affix{position:relative;top:auto}}
