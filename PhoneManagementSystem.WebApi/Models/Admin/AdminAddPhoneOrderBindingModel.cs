@@ -4,26 +4,20 @@
     public class AdminAddPhoneOrderBindingModel
     {
         [Required]
-        [Display(Name = "phoneId")]
-        public int phoneId { get; set; }
+        public string PhoneId { get; set; }
 
-        public string userId { get; set; }
-        
-        [Display(Name = "Username")]
+        public string UserId { get; set; }
+
         public string Username { get; set; }
-        
+
         [Display(Name = "Password")]
-        [DataType(DataType.Password)]
-        [MinLength(3)]
+        [DataType(DataType.Password)]        
         public string Password { get; set; }
-        
-        [Display(Name = "FullName")]
+
         public string FullName { get; set; }
-               
-        [Display(Name = "JobTitleId")]
+
         public int? JobTitleId { get; set; }
-       
-        [Display(Name = "DepartmentId")]
+
         public int? DepartmentId { get; set; }
     }
 }

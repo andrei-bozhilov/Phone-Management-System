@@ -8,19 +8,16 @@
     public class Phone
     {
         private ICollection<PhoneNumberOrder> phoneNumberOrders;
+        private ICollection<InvoiceData> invoiceData;
 
         public Phone()
         {
-            this.PhoneNumberOrders = new HashSet<PhoneNumberOrder>();
+            this.phoneNumberOrders = new HashSet<PhoneNumberOrder>();
+            this.invoiceData = new HashSet<InvoiceData>();
         }
 
         [Key]
-        public int Id { get; set; }
-
-        [Index(IsUnique = true)]
-        [StringLength(20)] 
-        [Required]
-        public string Number { get; set; }
+        public string PhoneId { get; set; }
 
         public PhoneStatus PhoneStatus { get; set; }
 
@@ -36,6 +33,12 @@
         {
             get { return this.phoneNumberOrders; }
             set { this.phoneNumberOrders = value; }
+        }
+
+        public virtual ICollection<InvoiceData> InvoiceData
+        {
+            get { return this.invoiceData; }
+            set { this.invoiceData = value; }
         }
     }
 }

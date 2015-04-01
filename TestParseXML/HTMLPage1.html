@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        
+        //http://www.w3.org/TR/file-upload/ - api for FileReader
+        function change() {
+            var file = document.getElementById("asd").files[0];
+            var reader = new FileReader();
+            reader.readAsText(file);
+            
+            reader.onload = loaded;
+            function loaded(evt) {
+                var fileString = evt.target.result;
+                document.getElementById("div").innerText = fileString;
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="file" id="asd" onchange="change()"/>
+    <div id="div"></div>
+    <a href="mailto:someone@yoursite.com?cc=someoneelse@theirsite.com, another@thatsite.com, me@mysite.com&bcc=lastperson@theirsite.com&subject=Big%20News&body=Body-goes-here">Email Us</a>
+</body>
+
+
+</html>

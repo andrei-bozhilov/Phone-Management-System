@@ -2,14 +2,17 @@
 
 .controller('AdminGiveOrderController', function ($scope, $rootScope, adminRequests, transplateNameToEng) {
     $rootScope.location = 'orders';
+    $rootScope.subLocation = 'give';
 
     $scope.departments = [];
     $scope.jobTitles = [];
     $scope.userData = {};
     $scope.availablePhones = [];
     $scope.users = [];
+    $scope.phoneObj = {};
+    $scope.phoneObj.phone = {};
 
-
+    $scope.fullname = "";
     $scope.userData.fullname = "";
     $scope.userData.username = "";
     $scope.userData.password = "";
@@ -17,8 +20,8 @@
     $scope.userData.departmentId = "";
     $scope.userData.phoneId = "";
     $scope.userData.jobTitleId = "";
+    $scope.userData.userId = "";
 
-    $scope.phoneNumber = "";
     $scope.departmentName = "";
     $scope.jobTitleName = "";
 
@@ -26,6 +29,8 @@
 
     //click
     $scope.giveCard = function () {
+        $scope.userData.phoneId = $scope.phoneObj.phone.number;
+        console.log($scope.userData);
         adminRequests.givePhoneOrder($scope.userData)
         .success(function (data) {
             console.log(data);
@@ -34,14 +39,15 @@
             $scope.userData.password = "";
 
             $scope.userData.departmentId = "";
-            $scope.userData.phoneId = "";
             $scope.userData.jobTitleId = "";
+            $scope.userData.userId = "";
 
-            $scope.phoneNumber = "";
             $scope.departmentName = "";
             $scope.jobTitleName = "";
+            $scope.fullname = "";
 
             $scope.getAllFreePhones();
+            $scope.getAllUsers(true);
         })
         .error(function (error) {
             console.log(error);
@@ -49,14 +55,6 @@
     };
 
     //change
-    $scope.changeNumber = function (data) {
-        $scope.availablePhones.forEach(function (x) {
-            if (x.id === data) {
-                $scope.phoneNumber = x.number;
-            }
-        });
-    };
-
     $scope.changeDepartment = function (data) {
         $scope.departments.forEach(function (x) {
             if (x.id === data) {
@@ -109,15 +107,26 @@
         });
     };
 
-    $scope.getAllUsers = function () {
-        if ($scope.users.length === 0) {
+    $scope.getAllUsers = function (forceToReload) {
+        if (forceToReload) { // if need to refresh data make request
             adminRequests.getAllUsers()
-            .success(function (data) {
-                $scope.users = data;
-            })
-            .error(function (error) {
-                console.log(error);
-            });
+           .success(function (data) {
+               $scope.users = data;
+               console.log(data);
+           })
+           .error(function (error) {
+               console.log(error);
+           });
+        } else {
+            if ($scope.users.length === 0) { //this prevent onclick to make request, the request is made only ones
+                adminRequests.getAllUsers()
+                .success(function (data) {
+                    $scope.users = data;
+                })
+                .error(function (error) {
+                    console.log(error);
+                });
+            }
         }
     };
 
@@ -126,12 +135,11 @@
         $scope.userData.fullname = user.fullName;
         $scope.jobTitleName = user.jobTitle;
         $scope.departmentName = user.departmentName;
-
+        $scope.userData.userId = user.id;
         console.log(user);
     };
 
     $scope.getAllDepartments();
     $scope.getAllFreePhones();
     $scope.getAllJobTitles();
-
 });

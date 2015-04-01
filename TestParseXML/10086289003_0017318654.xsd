@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="BTCINVOICE">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="INFO">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="VERSION" type="xs:decimal" />
+              <xs:element name="ITYPE" type="xs:string" />
+              <xs:element name="DOCTYPE" type="xs:string" />
+              <xs:element name="ISSUERNAME" type="xs:string" />
+              <xs:element name="ISSUERADDRESS" type="xs:string" />
+              <xs:element name="ISSUEREIK" type="xs:unsignedInt" />
+              <xs:element name="ISSUERVATNO" type="xs:string" />
+              <xs:element name="ISSUERBANKACCOUNT" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OWNER">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NAME" type="xs:string" />
+              <xs:element name="ADDRESS" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PAYER">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ACCOUNT" type="xs:unsignedLong" />
+              <xs:element name="NAME" type="xs:string" />
+              <xs:element name="ADDRESS" type="xs:string" />
+              <xs:element name="BULSTAT" type="xs:unsignedInt" />
+              <xs:element name="TAXNO" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="INVOICE">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NUMBER" type="xs:unsignedInt" />
+              <xs:element name="TOTALVAT" type="xs:decimal" />
+              <xs:element name="TOTALNOVAT" type="xs:decimal" />
+              <xs:element name="VATAMOUNT" type="xs:decimal" />
+              <xs:element name="VAT" type="xs:decimal" />
+              <xs:element name="TOTALAMOUNT" type="xs:decimal" />
+              <xs:element name="OTHERS" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="INVOICEDATE">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ISSUINGDATE" type="xs:string" />
+              <xs:element name="TAXEVENT" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PAYMENT">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DATE" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MAINLINES">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="SERVICE">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="NAME" type="xs:string" />
+                    <xs:element name="AMOUNT" type="xs:decimal" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ADDINFO">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KAMNAME" type="xs:string" />
+              <xs:element name="KAMPHONE" type="xs:unsignedInt" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="LINESGROUP">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="ADDLINESGROUP">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ADDNAME" type="xs:string" />
+                    <xs:element minOccurs="0" name="PERIODSTART" type="xs:string" />
+                    <xs:element minOccurs="0" name="PERIODEND" type="xs:string" />
+                    <xs:element maxOccurs="unbounded" name="PRODUCTGROUP">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" name="GROUPNAME" type="xs:string" />
+                          <xs:element maxOccurs="unbounded" name="PRODUCT">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" name="PRODUCTID" type="xs:string" />
+                                <xs:element maxOccurs="unbounded" name="ITEM">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element minOccurs="0" name="TYPE" type="xs:string" />
+                                      <xs:element minOccurs="0" name="LABEL" type="xs:string" />
+                                      <xs:element minOccurs="0" name="MONTH" type="xs:decimal" />
+                                      <xs:element minOccurs="0" name="INCLMIN" type="xs:string" />
+                                      <xs:element minOccurs="0" name="USEDMIN" type="xs:string" />
+                                      <xs:element minOccurs="0" name="USAGE" type="xs:string" />
+                                      <xs:element minOccurs="0" name="SDATE" type="xs:string" />
+                                      <xs:element minOccurs="0" name="EDATE" type="xs:string" />
+                                      <xs:element minOccurs="0" name="AMOUNT" type="xs:decimal" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="PRODUCTUSAGE" type="xs:string" />
+                                <xs:element name="PRODUCTAMOUNT" type="xs:decimal" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="ADDLAMOUNT" type="xs:decimal" />
+                    <xs:element name="ADDLUSAGE" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

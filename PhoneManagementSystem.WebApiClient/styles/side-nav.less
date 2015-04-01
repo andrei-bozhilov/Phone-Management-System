@@ -1,34 +1,35 @@
 ﻿
-/* define where you want the side nav after it's affixed */
-
-
-.side-menu.affix {
-    position:fixed;
-    top: 70px;
-     
+.menu-devision {
+    border-bottom: 1px black;
+    margin-bottom: 10px;
+    border-bottom-style: solid;
 }
 
+/* define where you want the side nav after it's affixed */
+.affix {
+    top: 70px;
+    width: 13%;
+}
 
-
+@media (min-width: 1500px) {
+    .affix {
+        top: 70px;
+        width: 10%;
+    }
+}
 
 @media (min-width: 768px) and (max-width: 979px) {
-    .side-menu.affix{
+    .affix {
         width: 100% !important;
-    }
-
-    .side-menu.affix{
         position: relative;
-        top: auto;       
+        top: auto;
     }
 }
 
 @media (max-width: 767px) {
-    .side-menu.affix {
+    .affix {
         width: 100% !important;
-    }
-
-    .side-menu.affix {
         position: relative;
-        top: auto;       
+        top: auto;
     }
 }

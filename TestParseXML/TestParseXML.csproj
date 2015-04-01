@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ED62E0E5-801D-43DF-B283-87C58B1F983B}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{D7C624AA-1F43-4AAC-9616-4A666A623DF3}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PhoneManagementSystem.Models</RootNamespace>
-    <AssemblyName>PhoneManagmentSystem.Models</AssemblyName>
+    <RootNamespace>TestParseXML</RootNamespace>
+    <AssemblyName>TestParseXML</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -36,12 +38,6 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Core">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -52,22 +48,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CardType.cs" />
-    <Compile Include="InvoiceData.cs" />
-    <Compile Include="InvoiceInfo.cs" />
-    <Compile Include="JobTitle.cs" />
-    <Compile Include="PhoneAction.cs" />
-    <Compile Include="PhoneNumberOrder.cs" />
-    <Compile Include="PhoneStatus.cs" />
-    <Compile Include="Service.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="Department.cs" />
-    <Compile Include="Phone.cs" />
+    <Compile Include="InvoiceReportBindingModel.cs" />
+    <Compile Include="InvoiceXmlParser.cs" />
+    <Compile Include="TestXmlParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HTMLPage1.html" />
+    <Content Include="test.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PhoneManagementSystem.Data\PhoneManagementSystem.Data.csproj">
+      <Project>{a06add43-c377-45e0-9e1b-ac4d4889af98}</Project>
+      <Name>PhoneManagementSystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhoneManagementSystem.Models\PhoneManagementSystem.Models.csproj">
+      <Project>{ed62e0e5-801d-43df-b283-87c58b1f983b}</Project>
+      <Name>PhoneManagementSystem.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

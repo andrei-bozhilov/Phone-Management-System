@@ -5,14 +5,14 @@
 
     using PhoneManagementSystem.Models;
     using PhoneManagementSystem.Data.Migrations;
-    
+
 
     public class ApplicationDbContext : IdentityDbContext<User>
     {
         public ApplicationDbContext()
             : base("DefaultConnectionString", throwIfV1Schema: false)
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext,Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }
 
         public IDbSet<Department> Departments { get; set; }
@@ -22,7 +22,13 @@
         public IDbSet<PhoneNumberOrder> PhoneNumberOrders { get; set; }
 
         public IDbSet<JobTitle> JobTitles { get; set; }
-        
+
+        public IDbSet<InvoiceData> InvoiceDatas { get; set; }
+
+        public IDbSet<InvoiceInfo> InvoiceInfos { get; set; }
+
+        public IDbSet<Service> Services { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

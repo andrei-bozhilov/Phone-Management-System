@@ -2,6 +2,7 @@
 
 .controller('AdminTakeOrderController', function ($scope, $rootScope, adminRequests) {
     $rootScope.location = 'orders';
+    $rootScope.subLocation = 'take';
 
 
 

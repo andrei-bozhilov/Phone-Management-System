@@ -1,5 +1,6 @@
 ﻿angular.module('app', [
     'ngRoute',
+    'ngAnimate',
     'ui.bootstrap'
 ])
 
@@ -90,6 +91,7 @@
     $rootScope.headerUsername = "";
     $rootScope.isAdmin = "";
     $rootScope.location = "";
+    $rootScope.subLocation = "";
 
     $rootScope.$on('$locationChangeStart', function (event) {
         if (userSession.getCurrentUser()) {

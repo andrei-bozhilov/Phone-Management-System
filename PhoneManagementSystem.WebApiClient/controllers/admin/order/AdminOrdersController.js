@@ -2,9 +2,9 @@
 
 .controller('AdminOrdersController', function ($scope, $rootScope, adminRequests) {
     $rootScope.location = 'orders';
+    $rootScope.subLocation = 'orders';
+
     $scope.orders = [];
-
-
 
     adminRequests.getAllOrders()
     .success(function (data) {

@@ -46,14 +46,14 @@ namespace PhoneManagementSystem.Data.Migrations
 
                 var order = new PhoneNumberOrder()
                 {
-                    PhoneId = phone.Id,
+                    PhoneId = phone.PhoneId,
                     UserId = user.Id,
                     ActionDate = DateTime.Now,
                     PhoneAction = PhoneAction.TakePhone,
                     AdminId = context.Users.Where(x => x.UserName == "admin").Select(x => x.Id).FirstOrDefault()
                 };
 
-                var newPhone = context.Phones.Where(x => x.Id == phone.Id).FirstOrDefault();
+                var newPhone = context.Phones.Where(x => x.PhoneId == phone.PhoneId).FirstOrDefault();
                 newPhone.PhoneStatus = PhoneStatus.Taken;
 
                 context.PhoneNumberOrders.Add(order);
@@ -108,14 +108,14 @@ namespace PhoneManagementSystem.Data.Migrations
             {
                 var phone = new Phone
                 {
-                    Number = RandomPhoneNumber(),
+                    PhoneId = RandomPhoneNumber(),
                     PhoneStatus = PhoneStatus.Free,
                     CardType = CardType.Unknown,
                     CreditLimit = 50,
                     HasRouming = true
                 };
 
-                if (phones.Any(x => x.Number == phone.Number))
+                if (phones.Any(x => x.PhoneId == phone.PhoneId))
                 {
                     i--;
                     continue;

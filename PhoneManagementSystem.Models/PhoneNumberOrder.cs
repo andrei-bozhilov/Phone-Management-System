@@ -13,8 +13,9 @@
         public string UserId { get; set; }
 
         public virtual User User { get; set; }
+
         [Required]
-        public int PhoneId { get; set; }
+        public string PhoneId { get; set; }
 
         public virtual Phone Phone { get; set; }
 

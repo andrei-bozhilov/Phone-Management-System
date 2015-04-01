@@ -19,6 +19,12 @@
 
         IRepository<PhoneNumberOrder> PhoneNumberOrders { get; }
 
+        IRepository<InvoiceData> InvoiceDatas { get; }
+
+        IRepository<InvoiceInfo> InvoiceInfos { get; }
+
+        IRepository<Service> Services { get; }
+
         int SaveChanges();
     }
 }

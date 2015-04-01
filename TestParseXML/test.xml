@@ -1,0 +1,1054 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BTCINVOICE>
+  <INFO>
+    <VERSION>1.1</VERSION>
+    <ITYPE>COPY</ITYPE>
+    <DOCTYPE>INVOICE</DOCTYPE>
+    <ISSUERNAME>Българска телекомуникационна компания ЕАД</ISSUERNAME>
+    <ISSUERADDRESS>бул. Цариградско шосе No. 115и, 1784 София</ISSUERADDRESS>
+    <ISSUEREIK>831642181</ISSUEREIK>
+    <ISSUERVATNO>BG831642181</ISSUERVATNO>
+    <ISSUERBANKACCOUNT>BG22CITI92504409CJ13JB</ISSUERBANKACCOUNT>
+  </INFO>
+  <OWNER>
+    <NAME>ТОКУШУКАЙ-СОФИЯ -ЕООД</NAME>
+    <ADDRESS>БУЛ. НИКОЛА ВАПЦАРОВ, 51 Б, ТОКУДА, 1407, СОФИЯ</ADDRESS>
+  </OWNER>
+  <PAYER>
+    <ACCOUNT>10086289003</ACCOUNT>
+    <NAME>ТОКУШУКАЙ-СОФИЯ -ЕООД</NAME>
+    <ADDRESS>БУЛ. НИКОЛА ВАПЦАРОВ, 51 Б, ТОКУДА, 1407, СОФИЯ</ADDRESS>
+    <BULSTAT>121608156</BULSTAT>
+    <TAXNO>BG121608156</TAXNO>
+  </PAYER>
+  <INVOICE>
+    <NUMBER>0017318654</NUMBER>
+    <TOTALVAT>10986.84</TOTALVAT>
+    <TOTALNOVAT>9155.70</TOTALNOVAT>
+    <VATAMOUNT>1831.14</VATAMOUNT>
+    <VAT>20.00</VAT>
+    <TOTALAMOUNT>11034.84</TOTALAMOUNT>
+    <OTHERS>48.00</OTHERS>
+  </INVOICE>
+  <INVOICEDATE>
+    <ISSUINGDATE>24.02.2015</ISSUINGDATE>
+    <TAXEVENT>24.02.2015</TAXEVENT>
+  </INVOICEDATE>
+  <PAYMENT>
+    <DATE>11.03.2015</DATE>
+  </PAYMENT>
+  <MAINLINES>
+    <SERVICE>
+      <NAME>Мобилни услуги</NAME>
+      <AMOUNT>11223.31</AMOUNT>
+    </SERVICE>
+    <SERVICE>
+      <NAME>Допълнителни отстъпки</NAME>
+      <AMOUNT>-2067.61</AMOUNT>
+    </SERVICE>
+  </MAINLINES>
+  <ADDINFO>
+    <KAMNAME>Десислава Габриел Илиева</KAMNAME>
+    <KAMPHONE>878400543</KAMPHONE>
+  </ADDINFO>
+  <LINESGROUP>
+    <ADDLINESGROUP>
+      <ADDNAME>Мобилни услуги</ADDNAME>
+      <PERIODSTART>22.01.2015</PERIODSTART>
+      <PERIODEND>21.02.2015</PERIODEND>
+      <PRODUCTGROUP>
+        <GROUPNAME>Мобилен номер</GROUPNAME>
+        <PRODUCT>
+          <PRODUCTID>882510664</PRODUCTID>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Бизнес Група 1</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>ВИВАКОМ Общност</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Отстъпка "Месечен абонамент"</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>-12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>Мобилни разговори</LABEL>
+            <USAGE>111:44</USAGE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>SMS</LABEL>
+            <USAGE>1</USAGE>
+            <AMOUNT>0.12</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 25 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група и мобилни мрежи в ЕС</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>25:00</INCLMIN>
+            <USEDMIN>0:00</USEDMIN>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 225 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>225:00</INCLMIN>
+            <USEDMIN>82:22</USEDMIN>
+          </ITEM>
+          <PRODUCTUSAGE>111:44</PRODUCTUSAGE>
+          <PRODUCTAMOUNT>0.12</PRODUCTAMOUNT>
+        </PRODUCT>
+        <PRODUCT>
+          <PRODUCTID>882519655</PRODUCTID>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Бизнес Група 1</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>ВИВАКОМ Общност</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Отстъпка "55&#37; Месечен абонамент"</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>-7.04</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>Мобилни разговори</LABEL>
+            <USAGE>287:00</USAGE>
+            <AMOUNT>2.47</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 25 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група и мобилни мрежи в ЕС</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>25:00</INCLMIN>
+            <USEDMIN>25:00</USEDMIN>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 225 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>225:00</INCLMIN>
+            <USEDMIN>225:00</USEDMIN>
+          </ITEM>
+          <PRODUCTUSAGE>287:00</PRODUCTUSAGE>
+          <PRODUCTAMOUNT>8.23</PRODUCTAMOUNT>
+        </PRODUCT>
+        <PRODUCT>
+          <PRODUCTID>882756057</PRODUCTID>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Traffic Unlimited L+</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>23.17</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Отстъпка "25&#37; Месечен абонамент"</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>-5.79</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>GPRS Данни</LABEL>
+            <USAGE>392841</USAGE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <PRODUCTUSAGE>0:00</PRODUCTUSAGE>
+          <PRODUCTAMOUNT>17.38</PRODUCTAMOUNT>
+        </PRODUCT>
+        <PRODUCT>
+          <PRODUCTID>882863832</PRODUCTID>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Traffic Unlimited L+</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>23.17</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Отстъпка "25&#37; Месечен абонамент"</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>-5.79</AMOUNT>
+          </ITEM>
+          <PRODUCTUSAGE>0:00</PRODUCTUSAGE>
+          <PRODUCTAMOUNT>17.38</PRODUCTAMOUNT>
+        </PRODUCT>
+        <PRODUCT>
+          <PRODUCTID>882904933</PRODUCTID>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Бизнес Група 1</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>ВИВАКОМ Общност</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Отстъпка "55&#37; Месечен абонамент"</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>-7.04</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>Мобилни разговори</LABEL>
+            <USAGE>60:27</USAGE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 25 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група и мобилни мрежи в ЕС</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>25:00</INCLMIN>
+            <USEDMIN>0:00</USEDMIN>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 225 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>225:00</INCLMIN>
+            <USEDMIN>38:00</USEDMIN>
+          </ITEM>
+          <PRODUCTUSAGE>60:27</PRODUCTUSAGE>
+          <PRODUCTAMOUNT>5.76</PRODUCTAMOUNT>
+        </PRODUCT>
+        <PRODUCT>
+          <PRODUCTID>882905214</PRODUCTID>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Бизнес Група 1</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>ВИВАКОМ Общност</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Отстъпка "Месечен абонамент"</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>-12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>Мобилни разговори</LABEL>
+            <USAGE>0:30</USAGE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 25 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група и мобилни мрежи в ЕС</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>25:00</INCLMIN>
+            <USEDMIN>0:00</USEDMIN>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 225 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>225:00</INCLMIN>
+            <USEDMIN>0:00</USEDMIN>
+          </ITEM>
+          <PRODUCTUSAGE>0:30</PRODUCTUSAGE>
+          <PRODUCTAMOUNT>0.00</PRODUCTAMOUNT>
+        </PRODUCT>
+        <PRODUCT>
+          <PRODUCTID>882905239</PRODUCTID>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Бизнес Група 1</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>ВИВАКОМ Общност</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Отстъпка "55&#37; Месечен абонамент"</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>-7.04</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>Мобилни разговори</LABEL>
+            <USAGE>132:57</USAGE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 25 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група и мобилни мрежи в ЕС</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>25:00</INCLMIN>
+            <USEDMIN>0:00</USEDMIN>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 225 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>225:00</INCLMIN>
+            <USEDMIN>29:36</USEDMIN>
+          </ITEM>
+          <PRODUCTUSAGE>132:57</PRODUCTUSAGE>
+          <PRODUCTAMOUNT>5.76</PRODUCTAMOUNT>
+        </PRODUCT>
+        <PRODUCT>
+          <PRODUCTID>882905261</PRODUCTID>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Бизнес Група 1</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>ВИВАКОМ Общност</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Отстъпка "Месечен абонамент"</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>-12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>Мобилни разговори</LABEL>
+            <USAGE>150:53</USAGE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 25 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група и мобилни мрежи в ЕС</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>25:00</INCLMIN>
+            <USEDMIN>0:00</USEDMIN>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 225 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>225:00</INCLMIN>
+            <USEDMIN>33:26</USEDMIN>
+          </ITEM>
+          <PRODUCTUSAGE>150:53</PRODUCTUSAGE>
+          <PRODUCTAMOUNT>0.00</PRODUCTAMOUNT>
+        </PRODUCT>
+        <PRODUCT>
+          <PRODUCTID>882905337</PRODUCTID>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Бизнес Група 1</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>ВИВАКОМ Общност</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Отстъпка "55&#37; Месечен абонамент"</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>-7.04</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>Мобилни разговори</LABEL>
+            <USAGE>163:02</USAGE>
+            <AMOUNT>0.41</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 25 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група и мобилни мрежи в ЕС</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>25:00</INCLMIN>
+            <USEDMIN>0:00</USEDMIN>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 225 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>225:00</INCLMIN>
+            <USEDMIN>96:18</USEDMIN>
+          </ITEM>
+          <PRODUCTUSAGE>163:02</PRODUCTUSAGE>
+          <PRODUCTAMOUNT>6.17</PRODUCTAMOUNT>
+        </PRODUCT>
+        <PRODUCT>
+          <PRODUCTID>882905372</PRODUCTID>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Бизнес Група 1</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>ВИВАКОМ Общност</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Отстъпка "55&#37; Месечен абонамент"</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>-7.04</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>Мобилни разговори</LABEL>
+            <USAGE>138:05</USAGE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 25 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група и мобилни мрежи в ЕС</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>25:00</INCLMIN>
+            <USEDMIN>0:00</USEDMIN>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 225 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>225:00</INCLMIN>
+            <USEDMIN>6:00</USEDMIN>
+          </ITEM>
+          <PRODUCTUSAGE>138:05</PRODUCTUSAGE>
+          <PRODUCTAMOUNT>5.76</PRODUCTAMOUNT>
+        </PRODUCT>
+        <PRODUCT>
+          <PRODUCTID>882905456</PRODUCTID>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Бизнес Група 1</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>ВИВАКОМ Общност</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Отстъпка "55&#37; Месечен абонамент"</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>-7.04</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>Мобилни разговори</LABEL>
+            <USAGE>407:28</USAGE>
+            <AMOUNT>9.58</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>SMS</LABEL>
+            <USAGE>2</USAGE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 25 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група и мобилни мрежи в ЕС</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>25:00</INCLMIN>
+            <USEDMIN>25:00</USEDMIN>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 225 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>225:00</INCLMIN>
+            <USEDMIN>225:00</USEDMIN>
+          </ITEM>
+          <PRODUCTUSAGE>407:28</PRODUCTUSAGE>
+          <PRODUCTAMOUNT>15.34</PRODUCTAMOUNT>
+        </PRODUCT>
+        <PRODUCT>
+          <PRODUCTID>882905461</PRODUCTID>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Бизнес Група 1</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>ВИВАКОМ Общност</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Отстъпка "55&#37; Месечен абонамент"</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>-7.04</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>Мобилни разговори</LABEL>
+            <USAGE>80:08</USAGE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 25 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група и мобилни мрежи в ЕС</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>25:00</INCLMIN>
+            <USEDMIN>0:00</USEDMIN>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 225 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>225:00</INCLMIN>
+            <USEDMIN>20:41</USEDMIN>
+          </ITEM>
+          <PRODUCTUSAGE>80:08</PRODUCTUSAGE>
+          <PRODUCTAMOUNT>5.76</PRODUCTAMOUNT>
+        </PRODUCT>
+        <PRODUCT>
+          <PRODUCTID>882905462</PRODUCTID>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Бизнес Група 1</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>ВИВАКОМ Общност</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Отстъпка "55&#37; Месечен абонамент"</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>-7.04</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>Мобилни разговори</LABEL>
+            <USAGE>318:51</USAGE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 25 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група и мобилни мрежи в ЕС</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>25:00</INCLMIN>
+            <USEDMIN>0:00</USEDMIN>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 225 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>225:00</INCLMIN>
+            <USEDMIN>109:02</USEDMIN>
+          </ITEM>
+          <PRODUCTUSAGE>318:51</PRODUCTUSAGE>
+          <PRODUCTAMOUNT>5.76</PRODUCTAMOUNT>
+        </PRODUCT>
+        <PRODUCT>
+          <PRODUCTID>882905471</PRODUCTID>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Бизнес Група 1</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>ВИВАКОМ Общност</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Отстъпка "55&#37; Месечен абонамент"</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>-7.04</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>Мобилни разговори</LABEL>
+            <USAGE>182:19</USAGE>
+            <AMOUNT>2.66</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 25 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група и мобилни мрежи в ЕС</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>25:00</INCLMIN>
+            <USEDMIN>0:00</USEDMIN>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 225 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>225:00</INCLMIN>
+            <USEDMIN>124:08</USEDMIN>
+          </ITEM>
+          <PRODUCTUSAGE>182:19</PRODUCTUSAGE>
+          <PRODUCTAMOUNT>8.42</PRODUCTAMOUNT>
+        </PRODUCT>
+        <PRODUCT>
+          <PRODUCTID>882905529</PRODUCTID>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Бизнес Група 1</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>ВИВАКОМ Общност</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Отстъпка "55&#37; Месечен абонамент"</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>-7.04</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>Мобилни разговори</LABEL>
+            <USAGE>721:35</USAGE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 25 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група и мобилни мрежи в ЕС</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>25:00</INCLMIN>
+            <USEDMIN>0:00</USEDMIN>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 225 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>225:00</INCLMIN>
+            <USEDMIN>59:24</USEDMIN>
+          </ITEM>
+          <PRODUCTUSAGE>721:35</PRODUCTUSAGE>
+          <PRODUCTAMOUNT>5.76</PRODUCTAMOUNT>
+        </PRODUCT>
+        <PRODUCT>
+          <PRODUCTID>882905542</PRODUCTID>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Бизнес Група 1</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>ВИВАКОМ Общност</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Отстъпка "55&#37; Месечен абонамент"</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>-7.04</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>Мобилни разговори</LABEL>
+            <USAGE>157:12</USAGE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 25 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група и мобилни мрежи в ЕС</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>25:00</INCLMIN>
+            <USEDMIN>0:00</USEDMIN>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 225 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>225:00</INCLMIN>
+            <USEDMIN>104:53</USEDMIN>
+          </ITEM>
+          <PRODUCTUSAGE>157:12</PRODUCTUSAGE>
+          <PRODUCTAMOUNT>5.76</PRODUCTAMOUNT>
+        </PRODUCT>
+        <PRODUCT>
+          <PRODUCTID>882905604</PRODUCTID>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Бизнес Група 1</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>ВИВАКОМ Общност</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Отстъпка "55&#37; Месечен абонамент"</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>-7.04</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>Мобилни разговори</LABEL>
+            <USAGE>141:34</USAGE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 25 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група и мобилни мрежи в ЕС</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>25:00</INCLMIN>
+            <USEDMIN>0:00</USEDMIN>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 225 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>225:00</INCLMIN>
+            <USEDMIN>104:16</USEDMIN>
+          </ITEM>
+          <PRODUCTUSAGE>141:34</PRODUCTUSAGE>
+          <PRODUCTAMOUNT>5.76</PRODUCTAMOUNT>
+        </PRODUCT>
+        <PRODUCT>
+          <PRODUCTID>882914933</PRODUCTID>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Бизнес Група 1</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>ВИВАКОМ Общност</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Отстъпка "Месечен абонамент"</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>-12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>Мобилни разговори</LABEL>
+            <USAGE>106:14</USAGE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>SMS</LABEL>
+            <USAGE>13</USAGE>
+            <AMOUNT>1.55</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 25 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група и мобилни мрежи в ЕС</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>25:00</INCLMIN>
+            <USEDMIN>0:00</USEDMIN>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 225 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>225:00</INCLMIN>
+            <USEDMIN>112:06</USEDMIN>
+          </ITEM>
+          <PRODUCTUSAGE>106:14</PRODUCTUSAGE>
+          <PRODUCTAMOUNT>1.55</PRODUCTAMOUNT>
+        </PRODUCT>
+        <PRODUCT>
+          <PRODUCTID>882919934</PRODUCTID>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>12.80</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Бизнес Група 1</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>ВИВАКОМ Общност</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>0.00</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>monthly</TYPE>
+            <LABEL>Отстъпка "55&#37; Месечен абонамент"</LABEL>
+            <SDATE>22.02.2015</SDATE>
+            <EDATE>21.03.2015</EDATE>
+            <AMOUNT>-7.04</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>Мобилни разговори</LABEL>
+            <USAGE>395:49</USAGE>
+            <AMOUNT>0.83</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>usage</TYPE>
+            <LABEL>SMS</LABEL>
+            <USAGE>4</USAGE>
+            <AMOUNT>0.48</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 25 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група и мобилни мрежи в ЕС</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>25:00</INCLMIN>
+            <USEDMIN>0:00</USEDMIN>
+          </ITEM>
+          <ITEM>
+            <TYPE>inc: 225 Включени минути към национални мобилни и фиксирани мрежи, Първа международна група</TYPE>
+            <LABEL>MegaBiz 250</LABEL>
+            <MONTH>02.2015</MONTH>
+            <INCLMIN>225:00</INCLMIN>
+            <USEDMIN>163:21</USEDMIN>
+          </ITEM>
+          <PRODUCTUSAGE>395:49</PRODUCTUSAGE>
+          <PRODUCTAMOUNT>7.07</PRODUCTAMOUNT>
+        </PRODUCT>
+      </PRODUCTGROUP>
+      <ADDLAMOUNT>11223.31</ADDLAMOUNT>
+      <ADDLUSAGE>268514:50</ADDLUSAGE>
+    </ADDLINESGROUP>
+    <ADDLINESGROUP>
+      <ADDNAME>Допълнителни отстъпки</ADDNAME>
+      <PRODUCTGROUP>
+        <PRODUCT>
+          <ITEM>
+            <LABEL>Отстъпка от  месечни абонаменти 20&#37;</LABEL>
+            <AMOUNT>-1442.92</AMOUNT>
+          </ITEM>
+          <ITEM>
+            <LABEL>Отстъпка от потребление 20&#37;</LABEL>
+            <AMOUNT>-624.69</AMOUNT>
+          </ITEM>
+          <PRODUCTUSAGE>0:00</PRODUCTUSAGE>
+          <PRODUCTAMOUNT>-2067.61</PRODUCTAMOUNT>
+        </PRODUCT>
+      </PRODUCTGROUP>
+      <ADDLAMOUNT>-2067.61</ADDLAMOUNT>
+      <ADDLUSAGE>0:00</ADDLUSAGE>
+    </ADDLINESGROUP>
+  </LINESGROUP>
+</BTCINVOICE>

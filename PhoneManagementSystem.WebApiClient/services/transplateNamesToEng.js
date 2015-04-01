@@ -2,23 +2,18 @@
 
 .factory('transplateNameToEng', function () {
     function translate(data) {
-        //var data = "";
         var input = data.toLocaleLowerCase().replace('-', ' ').split(' ');
-        //input = [];
         var firstLetter = input[0][0];
 
         var lastName = input[input.length - 1];
         var result = firstLetter + lastName;
-
-
 
         function translateChar(name) {
             var translateResult = "";
             var chResult = "";
 
             for (var ch in name) {
-
-                console.log(name);
+                
                 switch (name[ch]) {
                     //bg
                     case 'а': chResult = "a"; translateResult += chResult; break;
@@ -87,16 +82,10 @@
                 }
             }
             return translateResult;
-
         }
-
-        console.log(translateChar(input));
-        console.log(translateChar(firstLetter));
-        console.log(lastName);
 
         return result != "undefined" ? translateChar(result) : "No value";
     }
-
 
     return translate;
 })

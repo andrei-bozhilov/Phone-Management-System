@@ -71,6 +71,30 @@ namespace PhoneManagementSystem.Data
             }
         }
 
+        public IRepository<InvoiceData> InvoiceDatas
+        {
+            get
+            {
+                return this.GetRepository<InvoiceData>();
+            }
+        }
+
+        public IRepository<InvoiceInfo> InvoiceInfos
+        {
+            get
+            {
+                return this.GetRepository<InvoiceInfo>();
+            }
+        }
+
+        public IRepository<Service> Services
+        {
+            get
+            {
+                return this.GetRepository<Service>();
+            }
+        }
+
         public int SaveChanges()
         {
             return this.context.SaveChanges();

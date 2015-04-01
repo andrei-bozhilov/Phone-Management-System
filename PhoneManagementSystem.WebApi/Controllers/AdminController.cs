@@ -70,8 +70,7 @@
 
             var phoneToReturn = phones.Select(x => new
             {
-                id = x.Id,
-                number = x.Number,
+                number = x.PhoneId,
                 phoneStatus = x.PhoneStatus.ToString(),
                 hasRouming = x.HasRouming,
                 creditLimit = x.CreditLimit,
@@ -94,10 +93,9 @@
                     }
                 ).FirstOrDefault()
 
-            }).ToList().OrderBy(x => x.userInfo.username);
+            }).OrderBy(x => x.userInfo.username).ToList();
 
             return this.Ok(phoneToReturn);
-
         }
 
         [NonAction]
@@ -122,7 +120,7 @@
                 UserName = model.Username,
                 FullName = model.FullName,
                 JobTitleId = model.JobTitleId,
-                DepartmetId = model.DepartmentId,
+                DepartmentId = model.DepartmentId,
                 IsActive = true
             };
 
@@ -163,7 +161,7 @@
             var users = this.Data.Users.All();
             if (model.DepartmentId.HasValue)
             {
-                users = users.Where(x => x.DepartmetId == model.DepartmentId);
+                users = users.Where(x => x.DepartmentId == model.DepartmentId);
             }
 
             if (model.IsUserActive.HasValue)
@@ -219,7 +217,7 @@
             {
                 orderId = x.Id,
                 userName = x.User.FullName,
-                phone = x.Phone.Number,
+                phone = x.Phone.PhoneId,
                 admin = x.Admin.UserName,
                 date = x.ActionDate.ToString("o"),
                 action = x.PhoneAction.ToString()
@@ -238,21 +236,21 @@
             }
 
             var phone = this.Data.Phones.All()
-                .Where(x => x.Id == model.phoneId)
+                .Where(x => x.PhoneId == model.PhoneId)
                 .Select(x => new
                 {
-                    phoneNumber = x.Number,
+                    phoneNumber = x.PhoneId,
                     status = x.PhoneStatus
                 })
                 .FirstOrDefault();
 
             if (phone == null)
             {
-                return this.BadRequest("There is no number with id " + model.phoneId);
+                return this.BadRequest("There is no number with id " + model.PhoneId);
             }
             else if (phone.status != PhoneStatus.Free)
             {
-                return this.BadRequest("Phone has different status than free " + phone.status);
+                return this.BadRequest("Phone has different status than free. Phone Status: " + phone.status);
             }
 
             var adminId = User.Identity.GetUserId();
@@ -263,8 +261,7 @@
                 return BadRequest("Invalid user token! Please login again!");
             }
 
-
-            if (model.userId == null)
+            if (model.UserId == null)
             {
                 if (string.IsNullOrWhiteSpace(model.FullName))
                 {
@@ -278,14 +275,16 @@
 
                 if (string.IsNullOrWhiteSpace(model.Username))
                 {
-                    return BadRequest("User name is null");
+                    return BadRequest("Username is null");
                 }
 
                 var userModel = new RegisterUserBindingModel()
                 {
                     FullName = model.FullName,
                     Username = model.Username,
-                    Password = model.Password
+                    Password = model.Password,
+                    DepartmentId = model.DepartmentId,
+                    JobTitleId = model.JobTitleId
                 };
 
                 var task = Task.Run(async () =>
@@ -295,35 +294,34 @@
 
                 var response = task.Result;
 
-                model.userId = response;
+                model.UserId = response;
 
-                if (model.userId.Contains(" "))
+                if (model.UserId.Contains(" "))
                 {
-                    return this.BadRequest(model.userId);
+                    return this.BadRequest(model.UserId);
                 }
 
                 var userIdTest = this.Data.Users.All()
-                   .Where(x => x.Id == model.userId)
+                   .Where(x => x.Id == model.UserId)
                    .Select(x => x.Id)
                    .FirstOrDefault();
 
                 if (userIdTest == null)
                 {
-                    return this.BadRequest("There is no user with id " + model.userId);
+                    return this.BadRequest("There is no user with id " + model.UserId);
                 }
-
             }
 
             var order = new PhoneNumberOrder()
             {
-                UserId = model.userId,
-                PhoneId = model.phoneId,
+                UserId = model.UserId,
+                PhoneId = model.PhoneId,
                 ActionDate = DateTime.Now,
                 PhoneAction = PhoneAction.TakePhone,
                 AdminId = User.Identity.GetUserId()
             };
 
-            var phoneToGive = this.Data.Phones.Find(model.phoneId).PhoneStatus = PhoneStatus.Taken;
+            var phoneToGive = this.Data.Phones.Find(model.PhoneId).PhoneStatus = PhoneStatus.Taken;
             this.Data.PhoneNumberOrders.Add(order);
 
             this.Data.SaveChanges();
@@ -361,7 +359,7 @@
             //check is there is same order
             var orders = this.Data.PhoneNumberOrders.All()
                 .Where(x =>
-                    x.PhoneId == phone.Id &&
+                    x.PhoneId == phone.PhoneId &&
                     x.UserId == user.Id).GroupBy(x => x.PhoneAction).Select(y => new
                     {
                         action = y.Key,
@@ -385,7 +383,7 @@
             var newOrder = new PhoneNumberOrder
             {
                 ActionDate = DateTime.Now,
-                PhoneId = phone.Id,
+                PhoneId = phone.PhoneId,
                 UserId = user.Id,
                 AdminId = adminId,
                 PhoneAction = PhoneAction.GiveBackPhone
@@ -395,7 +393,7 @@
 
             this.Data.SaveChanges();
 
-            return Ok("Order is succesfully remove number " + phone.Number + " and user " + user.FullName);
+            return Ok("Order is succesfully remove number " + phone.PhoneId + " and user " + user.FullName);
         }
     }
 }

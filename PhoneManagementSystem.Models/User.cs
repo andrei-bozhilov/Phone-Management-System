@@ -36,7 +36,7 @@
 
         public virtual JobTitle JobTitle { get; set; }
 
-        public int? DepartmetId { get; set; }
+        public int? DepartmentId { get; set; }
 
         public virtual Department Department { get; set; }
 

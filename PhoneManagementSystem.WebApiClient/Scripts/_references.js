@@ -147,3 +147,6 @@
 /// <reference path="../services/notyService.js" />
 /// <reference path="../bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.min.js" />
 /// <reference path="../bower_components/angular-ui-bootstrap-bower/ui-bootstrap.min.js" />
+/// <reference path="../bower_components/angular/index.js" />
+/// <reference path="../bower_components/angular-animate/angular-animate.min.js" />
+/// <reference path="../bower_components/angular-animate/index.js" />
