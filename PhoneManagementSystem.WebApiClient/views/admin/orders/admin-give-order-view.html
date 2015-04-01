@@ -1,7 +1,7 @@
 ﻿<div class="col-md-10">
     <div class="no-print">
         <h2>Give card</h2>
-        <div class="panel">
+        <div class="panel app-panel">
             <div class="panel-body">
                 <!--Tabs-->
                 <tabset>
@@ -79,7 +79,7 @@
                                         <option value="">(Choose number)</option>
                                     </select>
                                 </div>
-                                <form>
+                            </form>
                         </div>
                         <div class="col-md-6">
                             <form>
@@ -99,23 +99,24 @@
                                     <div class="form-group">
                                         <div class="btn btn-primary" ng-click="giveCard()">Give card</div>
                                     </div>
+                                </div>
                             </form>
                         </div>
                     </tab> <!--Second Tab END-->
                 </tabset>
             </div>
         </div>
-        <h2>Preview</h2>
+    </div>
+    <h2 class="no-print">Preview</h2>
+    <div class="col-md-10">
+        <div ng-include='"../../../templates/admin-order-give-card-template.html"'></div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <div class="visible-print" ng-include='"../../../templates/admin-order-give-card-template.html"'></div>
     </div>
 </div>
 
-<div class="col-md-10">
-    <div ng-include='"../../../templates/admin-order-give-card-template.html"'></div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-
-    <div class="visible-print" ng-include='"../../../templates/admin-order-give-card-template.html"'></div>
-</div>

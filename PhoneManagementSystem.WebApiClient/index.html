@@ -31,7 +31,7 @@
 
                     <!--ADMIN-->
                     <div ng-switch-when="true">
-                        <div class="panel">
+                        <div class="panel app-panel">
                             <div>
                                 <ul class="nav nav-pills nav-stacked">
                                     <li ng-class="location == 'home' ? 'active' : ''">
@@ -41,7 +41,7 @@
                                         <a href="#/admin/orders">Card Orders</a>
                                     </li>
                                     <li ng-class="location == 'table-manage' ? 'active' : ''">
-                                        <a href="#/admin/table-manage">Table manage</a>
+                                        <a href="#/admin/table-manage/phones">Table manage</a>
                                     </li>
                                     <li ng-class="location == 'phonebook' ? 'active' : ''">
                                         <a href="#/admin/phonebook">Phonebook</a>
@@ -52,7 +52,7 @@
                         <div ng-switch="location">
                             <div ng-switch-when="orders">
                                 <div class="menu-devision"></div>
-                                <div class="panel">
+                                <div class="panel app-panel">
                                     <ul class="nav nav-pills nav-stacked">
                                         <li ng-class="subLocation == 'orders' ? 'active' : ''">
                                             <a href="#/admin/orders">Card Orders</a>
@@ -65,32 +65,46 @@
                                         </li>
                                     </ul>
                                 </div>
-
-                                <div ng-switch-when="phones">
-                                    <ul class="nav nav-pills nav-stacked addion-menu" data-spy="affix" data-offset-top="0">
-                                        <li><a href="#/admin/phones/1">1</a></li>
-                                        <li><a href="#/admin/phones/2">2</a></li>
-                                        <li><a href="#/admin/phones/3">3</a></li>
-                                        <li><a href="#/admin/phones/4">4</a></li>
+                            </div>
+                            <div ng-switch-when="table-manage">
+                                <div class="menu-devision"></div>
+                                <div class="panel app-panel">
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li ng-class="subLocation == 'phones' ? 'active' : ''">
+                                            <a href="#/admin/table-manage/phones">Phones</a>
+                                        </li>
+                                        <li ng-class="subLocation == 'users' ? 'active' : ''">
+                                            <a href="#/admin/table-manage/users">Users</a>
+                                        </li>
+                                        <li ng-class="subLocation == 'departments' ? 'active' : ''">
+                                            <a href="#/admin/table-manage/departments">Departments</a>
+                                        </li>
+                                        <li ng-class="subLocation == 'job-titles' ? 'active' : ''">
+                                            <a href="#/admin/table-manage/job-titles">Job titles</a>
+                                        </li>
 
                                     </ul>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
-
 
                     <!--User-->
                     <div ng-switch-when="false">
-                        <div class="panel">
-                            <ul class="nav nav-pills nav-stacked main-menu affix" data-spy="affix" data-offset-top="0">
-                                <li><a href="#/user/home">Home</a></li>
-                                <li><a href="#/user/phonebook">Phonebook</a></li>
-                                <li><a href="#/user/bills">Bills</a></li>
-                                <li><a href="#/user/profile">Profile</a></li>
-
+                        <div class="panel app-panel">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li>
+                                    <a href="#/user/home">Home</a>
+                                </li>
+                                <li>
+                                    <a href="#/user/phonebook">Phonebook</a>
+                                </li>
+                                <li>
+                                    <a href="#/user/bills">Bills</a>
+                                </li>
+                                <li>
+                                    <a href="#/user/profile">Profile</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -144,24 +158,13 @@
 
     <script src="controllers/public/LoginController.js"></script>
 
-    <script src="controllers/admin/AdminDepartmentsController.js"></script>
     <script src="controllers/admin/AdminHomeController.js"></script>
-    <script src="controllers/admin/AdminPhonesController.js"></script>
-    <script src="controllers/admin/AdminUsersController.js"></script>
 
     <script src="controllers/admin/order/AdminOrdersController.js"></script>
     <script src="controllers/admin/order/AdminGiveOrderController.js"></script>
     <script src="controllers/admin/order/AdminTakeOrderController.js"></script>
 
-    <script src="controllers/admin/user/AdminAddUserController.js"></script>
-    <script src="controllers/admin/user/AdminDeleteUserController.js"></script>
-    <script src="controllers/admin/user/AdminEditUserController.js"></script>
-
-
-    <script>
-
-
-    </script>
+    <script src="controllers/admin/table-manage/AdminPhonesController.js"></script>
 
 </body>
 </html>

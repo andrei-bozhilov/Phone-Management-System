@@ -27,11 +27,6 @@
          controller: 'AdminHomeController'
      })
 
-    .when('/admin/users', {
-        templateUrl: 'views/admin/admin-home-view.html',
-        controller: 'AdminUsersController'
-    })
-
     .when('/admin/orders', {
         templateUrl: 'views/admin/orders/admin-orders-view.html',
         controller: 'AdminOrdersController'
@@ -47,33 +42,35 @@
         controller: 'AdminTakeOrderController'
     })
 
-    .when('/admin/users/add', {
-        templateUrl: 'views/admin/admin-add-user-view.html',
-        controller: 'AdminAddUserController'
+    .when('/admin/table-manage/phones', {
+        templateUrl: 'views/admin/table-manage/admin-phones-view.html',
+        controller: 'AdminPhonesController'
     })
 
-    .when('/admin/users/edit', {
-        templateUrl: 'views/admin/admin-edit-user-view.html',
-        controller: 'AdminEditUserController'
-    })
+    //.when('/admin/users', {
+    //    templateUrl: 'views/admin/admin-home-view.html',
+    //    controller: 'AdminUsersController'
+    //})
 
-    .when('/admin/users/delete', {
-        templateUrl: 'views/admin/admin-delete-user-view.html',
-        controller: 'AdminDeleteUserController'
-    })
+    //.when('/admin/users/add', {
+    //    templateUrl: 'views/admin/admin-add-user-view.html',
+    //    controller: 'AdminAddUserController'
+    //})
 
-    .when('/admin/departments', {
-        templateUrl: 'views/admin/admin-home-view.html',
-        controller: 'AdminDepartmentsController'
-    })
+    //.when('/admin/users/edit', {
+    //    templateUrl: 'views/admin/admin-edit-user-view.html',
+    //    controller: 'AdminEditUserController'
+    //})
 
-     .when('/admin/phones', {
-         templateUrl: 'views/admin/admin-phones-view.html',
-         controller: 'AdminPhonesController'
-     })
+    //.when('/admin/users/delete', {
+    //    templateUrl: 'views/admin/admin-delete-user-view.html',
+    //    controller: 'AdminDeleteUserController'
+    //})
 
-
-
+    //.when('/admin/departments', {
+    //    templateUrl: 'views/admin/admin-home-view.html',
+    //    controller: 'AdminDepartmentsController'
+    //})
 }])
 
 .controller('WelcomeController', function ($location, userSession) {
@@ -114,7 +111,5 @@
             $location.path('/admin/home');
             console.log("admin");
         }
-
     });
-
 })

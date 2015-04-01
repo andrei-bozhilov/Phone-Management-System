@@ -25,11 +25,11 @@
         [HttpGet]
         public IHttpActionResult GetAllJobTitles()
         {
-            var jobTitles = this.Data.JobTitles.All().Select(x => new
+            var jobTitles = this.Data.JobTitles.All().OrderBy(jobT => jobT.Name).Select(jobT => new
             {
-                id = x.Id,
-                jobTitleName = x.Name
-            }).ToList().OrderBy(x => x.jobTitleName);
+                id = jobT.Id,
+                jobTitleName = jobT.Name
+            }).ToList();
 
             return this.Ok(jobTitles);
         }

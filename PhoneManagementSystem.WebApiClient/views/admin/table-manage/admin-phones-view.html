@@ -1,28 +1,28 @@
 ﻿<div class="col-md-10">
     <div class="col-md-8">
-        <h2>Orders</h2>
+        <h2>Phones</h2>
     </div>
     <!--Drop down menu for filtering-->
     <div class="col-md-4">
         <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-expanded="true">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                 Filters
                 <span class="caret"></span>
             </button>
-            <div class="panel app-panel dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+            <div class="panel app-panel dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                 <div class="panel-body">
                     <form>
                         <div class="form-group">
-                            <label for="adminId">Admin:</label>
-                            <select class="form-control" ng-model="request.adminId" id="adminId"
+                            <label for="departmentId">Department:</label>{{departmentId}}
+                            <select class="form-control" ng-model="userData.departmentId" id="departmentId"
                                     ng-options="department.id as department.name for department in departments"
                                     ng-change="changeDepartment(userData.departmentId)">
                                 <option value="">(Choose department)</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="action">Action type:</label>
-                            <select class="form-control" ng-model="request.action" id="action"
+                            <label for="phone">Phone:</label>
+                            <select class="form-control" ng-model="phoneObj.phone" id="phone"
                                     ng-options="availablePhone.number for availablePhone in availablePhones">
                                 <option value="">(Choose number)</option>
                             </select>
@@ -32,23 +32,23 @@
                         <div class="form-group">
                             <label for="phone">From:</label>
                             <p class="input-group">
-                                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="request.fromDate" is-open="openedFrom" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
                                 <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default" ng-click="openFrom($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                                 </span>
                             </p>
                         </div>
                         <div class="form-group">
                             <label for="phone">To:</label>
                             <p class="input-group">
-                                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="request.toDate" is-open="openedTo" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
                                 <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default" ng-click="openTo($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                                 </span>
                             </p>
                         </div>
                         <div class="form-group">
-                            <div class="btn btn-primary pull-right" ng-click="getOrdersWithFilter()">Filter</div>
+                            <div class="btn btn-primary pull-right" ng-click="">Filter</div>
                         </div>
                         <div class="clearfix"></div>
                     </form>
@@ -57,50 +57,57 @@
         </div>
     </div>
     <!--Drop down menu for filtering END-->
+
     <div class="panel">
-        <div class="scrollable-area">
-            <table class="table table-bordered table-hover table-striped">
+        <div class="panel-body">
+            <table class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>
                         <th>
-                            Id
+                            Number
                         </th>
                         <th>
                             Username
                         </th>
                         <th>
-                            Phone
+                            Full Name
                         </th>
                         <th>
-                            AdminUser
+                            Department
                         </th>
                         <th>
-                            Data
+                            Has Roaming
                         </th>
                         <th>
-                            Action
+                            Credit Limit
+                        </th>
+                        <th>
+                            Card Type
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="order in orders">
+                    <tr ng-repeat="phone in phones">
                         <td>
-                            {{order.orderId}}
+                            {{phone.number}}
                         </td>
                         <td>
-                            {{order.userName}}
+                            {{phone.userInfo.username}}
                         </td>
                         <td>
-                            {{order.phone}}
+                            {{phone.userInfo.fullname}}
                         </td>
                         <td>
-                            {{order.admin}}
+                            {{phone.userInfo.department}}
                         </td>
                         <td>
-                            {{order.date | date:'MM/dd/yyyy @ HH:mm'}}
+                            {{phone.hasRouming}}
                         </td>
                         <td>
-                            {{order.action}}
+                            {{phone.creditLimit}}
+                        </td>
+                        <td>
+                            {{phone.cardType}}
                         </td>
                     </tr>
                 </tbody>
@@ -108,4 +115,7 @@
         </div>
     </div>
 </div>
+
+
+
 

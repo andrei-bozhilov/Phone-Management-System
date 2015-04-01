@@ -213,15 +213,15 @@
                 orders = orders.Where(x => x.UserId == model.UserId);
             }
 
-            var orderToReturn = orders.ToList().Select(x => new
+            var orderToReturn = orders.OrderByDescending(o => o.ActionDate).Select(o => new
             {
-                orderId = x.Id,
-                userName = x.User.FullName,
-                phone = x.Phone.PhoneId,
-                admin = x.Admin.UserName,
-                date = x.ActionDate.ToString("o"),
-                action = x.PhoneAction.ToString()
-            }).OrderByDescending(x => x.date);
+                orderId = o.Id,
+                userName = o.User.FullName,
+                phone = o.Phone.PhoneId,
+                admin = o.Admin.UserName,
+                date = o.ActionDate,
+                action = o.PhoneAction.ToString()
+            }).ToList();
 
             return Ok(orderToReturn);
         }

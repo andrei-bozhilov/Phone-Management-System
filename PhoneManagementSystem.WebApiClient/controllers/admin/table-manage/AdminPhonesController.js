@@ -1,7 +1,10 @@
 ﻿angular.module('app')
 
 .controller('AdminPhonesController', function ($scope, $rootScope, adminRequests) {
-    $rootScope.location = 'phones';
+    $rootScope.location = 'table-manage';
+    $rootScope.subLocation = 'phones';
+    console.log($rootScope.location);
+
     $scope.phones = {};
 
     adminRequests.getAllPhones()
