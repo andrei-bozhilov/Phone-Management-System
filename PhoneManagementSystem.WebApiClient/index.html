@@ -38,10 +38,10 @@
                                         <a href="#/admin/home" ng-class="">Home</a>
                                     </li>
                                     <li ng-class="location == 'orders' ? 'active' : ''">
-                                        <a href="#/admin/orders">Card Orders</a>
+                                        <a href="#/admin/orders/give">Card Orders</a>
                                     </li>
                                     <li ng-class="location == 'table-manage' ? 'active' : ''">
-                                        <a href="#/admin/table-manage/phones">Table manage</a>
+                                        <a href="#/admin/table-manage/phones">Tables management</a>
                                     </li>
                                     <li ng-class="location == 'phonebook' ? 'active' : ''">
                                         <a href="#/admin/phonebook">Phonebook</a>
@@ -54,14 +54,14 @@
                                 <div class="menu-devision"></div>
                                 <div class="panel app-panel">
                                     <ul class="nav nav-pills nav-stacked">
-                                        <li ng-class="subLocation == 'orders' ? 'active' : ''">
-                                            <a href="#/admin/orders">Card Orders</a>
-                                        </li>
                                         <li ng-class="subLocation == 'give' ? 'active' : ''">
                                             <a href="#/admin/orders/give">Give Card</a>
                                         </li>
                                         <li ng-class="subLocation == 'take' ? 'active' : ''">
                                             <a href="#/admin/orders/take">Take Card</a>
+                                        </li>
+                                        <li ng-class="subLocation == 'orders' ? 'active' : ''">
+                                            <a href="#/admin/orders">Card Orders</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -125,16 +125,8 @@
             <div>
                 <div ng-view>  </div>
             </div>
-
-
-
-
         </div>
     </div>
-
-
-
-
 
 
     <script src="bower_components/angular/angular.js"></script>

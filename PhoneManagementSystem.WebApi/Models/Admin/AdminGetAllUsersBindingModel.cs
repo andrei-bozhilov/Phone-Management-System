@@ -3,11 +3,11 @@
     using System.ComponentModel.DataAnnotations;
 
     public class AdminGetAllUsersBindingModel
-    {
-        [Display(Name = "isUserActive")]
-        public bool? IsUserActive { get; set; }
-
-        [Display(Name = "departmentId")]
+    {       
+        public bool? IsActive { get; set; }
+        
         public int? DepartmentId { get; set; }
+
+        public bool? IsAdmin { get; set; }
     }
 }

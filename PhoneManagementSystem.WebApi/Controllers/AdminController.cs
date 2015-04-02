@@ -61,21 +61,21 @@
                 return this.BadRequest(ModelState);
             }
 
-            var phones = this.Data.Phones.All();
+            var phones = this.Data.Phones.All().Include(p => p.PhoneNumberOrders);
 
             if (model.PhoneStatus.HasValue)
             {
-                phones = phones.Where(x => x.PhoneStatus == model.PhoneStatus);
+                phones = phones.Where(p => p.PhoneStatus == model.PhoneStatus.Value);
             }
 
-            var phoneToReturn = phones.Select(x => new
+            var phoneToReturn = phones.Select(p => new
             {
-                number = x.PhoneId,
-                phoneStatus = x.PhoneStatus.ToString(),
-                hasRouming = x.HasRouming,
-                creditLimit = x.CreditLimit,
-                cardType = x.CardType.ToString(),
-                userInfo = (x.PhoneStatus == PhoneStatus.Free) ? new
+                number = p.PhoneId,
+                phoneStatus = p.PhoneStatus.ToString(),
+                hasRouming = p.HasRouming,
+                creditLimit = p.CreditLimit,
+                cardType = p.CardType.ToString(),
+                userInfo = (p.PhoneStatus == PhoneStatus.Free) ? new
                 {
                     username = "",
                     fullname = "",
@@ -83,7 +83,7 @@
                     department = ""
 
 
-                } : x.PhoneNumberOrders.OrderByDescending(order => order.ActionDate).Select(user =>
+                } : p.PhoneNumberOrders.OrderByDescending(order => order.ActionDate).Select(user =>
                     new
                     {
                         username = user.User.UserName,
@@ -159,14 +159,24 @@
             }
 
             var users = this.Data.Users.All();
+
             if (model.DepartmentId.HasValue)
             {
-                users = users.Where(x => x.DepartmentId == model.DepartmentId);
+                users = users.Where(x => x.DepartmentId == model.DepartmentId.Value);
             }
 
-            if (model.IsUserActive.HasValue)
+            if (model.IsActive.HasValue)
             {
-                users = users.Where(x => x.IsActive == model.IsUserActive);
+                users = users.Where(x => x.IsActive == model.IsActive.Value);
+            }
+
+            if (model.IsAdmin.HasValue)
+            {
+                var adminRoleId = this.Data.UserRoles.All()
+                .Where(r => r.Name == "Administrator")
+                .Select(r => r.Id).FirstOrDefault();
+
+                users = users.Where(u => u.Roles.Any(r => r.RoleId == adminRoleId));
             }
 
             var userToReturn = users.Select(x => new
@@ -200,7 +210,7 @@
 
             if (model.PhoneAction.HasValue)
             {
-                orders = orders.Where(x => x.PhoneAction == model.PhoneAction);
+                orders = orders.Where(x => x.PhoneAction == model.PhoneAction.Value);
             }
 
             if (model.AdminId != null)
@@ -248,7 +258,8 @@
             {
                 return this.BadRequest("There is no number with id " + model.PhoneId);
             }
-            else if (phone.status != PhoneStatus.Free)
+
+            if (phone.status != PhoneStatus.Free)
             {
                 return this.BadRequest("Phone has different status than free. Phone Status: " + phone.status);
             }
@@ -261,7 +272,7 @@
                 return BadRequest("Invalid user token! Please login again!");
             }
 
-            if (model.UserId == null)
+            if (string.IsNullOrWhiteSpace(model.UserId))
             {
                 if (string.IsNullOrWhiteSpace(model.FullName))
                 {
@@ -298,7 +309,7 @@
 
                 if (model.UserId.Contains(" "))
                 {
-                    return this.BadRequest(model.UserId);
+                    return this.BadRequest(model.UserId); // if the request is bad userId will be exception message                   
                 }
 
                 var userIdTest = this.Data.Users.All()
@@ -373,7 +384,7 @@
             {
                 if (giveBacks == takes)
                 {
-                    return this.BadRequest("First have to order the phone than return it back");
+                    return this.BadRequest("First have to take the phone than return it back");
                 }
             }
 
@@ -393,7 +404,7 @@
 
             this.Data.SaveChanges();
 
-            return Ok("Order is succesfully remove number " + phone.PhoneId + " and user " + user.FullName);
+            return Ok("Order is successfully removed number " + phone.PhoneId + " and user " + user.FullName);
         }
     }
 }

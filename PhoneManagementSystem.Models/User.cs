@@ -5,7 +5,8 @@
     using System.Collections.Generic;
 
     using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;    
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using System.ComponentModel.DataAnnotations;    
    
     public class User : IdentityUser
     {
@@ -28,6 +29,7 @@
 
         public bool IsActive { get; set; }
 
+        [Required]
         public string FullName { get; set; }
 
         public int EmployeeNumber { get; set; }
