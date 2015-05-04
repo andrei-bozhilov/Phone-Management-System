@@ -2,23 +2,21 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Data.Entity;
     using System.Linq;
     using System.Net.Http;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using System.Web;
-    using System.Web.Http;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
-    using Microsoft.Owin.Security;
-    using Microsoft.Owin.Security.Cookies;
     using System.Text;
+    using System.Threading.Tasks;
+    using System.Threading;
+    using System.Web.Http;
+    using System.Web;
+
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.Owin.Security;
 
     using PhoneManagementSystem.Data;
     using PhoneManagementSystem.Models;
-    using PhoneManagementSystem.WebApi.Models.User;    
-
+    using PhoneManagementSystem.WebApi.BindingModels.User;
 
     [Authorize]
     [RoutePrefix("api/user")]
@@ -53,6 +51,7 @@
                 return Request.GetOwinContext().Authentication;
             }
         }
+
         //Post api/User/Login
         [HttpPost]
         [AllowAnonymous]
@@ -76,7 +75,7 @@
                     new KeyValuePair<string, string>("password", model.Password)
                 };
 
-                var user = this.Data.Users.All().FirstOrDefault(x=>x.UserName == model.Username);
+                var user = this.Data.Users.All().FirstOrDefault(x => x.UserName == model.Username);
                 //check if user is active
 
                 if (!user.IsActive)
@@ -91,7 +90,7 @@
                 var tokenServiceResponse = await client.PostAsync(tokenServiceUrl, requestParamsFormUrlEncoded);
                 var responseString = await tokenServiceResponse.Content.ReadAsStringAsync();
                 var responseCode = tokenServiceResponse.StatusCode;
-                                
+
                 var responseMsg = new HttpResponseMessage(responseCode)
                 {
                     Content = new StringContent(responseString, Encoding.UTF8, "application/json")
@@ -102,7 +101,7 @@
         }
 
         [HttpPost]
-        [Authorize(Roles = "Administrator")]       
+        [Authorize(Roles = "Administrator")]
         [Route("Register")]
         public async Task<HttpResponseMessage> RegisterUser(RegisterUserBindingModel model)
         {
@@ -111,19 +110,19 @@
                 return await this.BadRequest(this.ModelState).ExecuteAsync(new CancellationToken());
             }
 
-            var user = new User 
+            var user = new User
             {
                 UserName = model.Username,
                 FullName = model.FullName,
-                IsActive = true                
+                IsActive = true
             };
 
-            IdentityResult result = 
+            IdentityResult result =
                 await this.UserManager.CreateAsync(user, model.Password);
 
             if (!result.Succeeded)
             {
-                 return await this.GetErrorResult(result).ExecuteAsync(new CancellationToken());
+                return await this.GetErrorResult(result).ExecuteAsync(new CancellationToken());
             }
 
             // Auto login after register (successful user registration should return access_token)

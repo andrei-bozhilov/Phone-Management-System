@@ -1,6 +1,10 @@
 ﻿angular.module('app')
 
-.controller('AdminGiveOrderController', function ($scope, $rootScope, adminRequests, transplateNameToEng) {
+.controller('AdminGiveOrderController',
+function ($scope, $rootScope, adminRequests, transplateNameToEng, helper, notyService, userSession) {
+    if (!userSession.getCurrentUser()) {
+        $location.path('/login');
+    }
     $rootScope.location = 'orders';
     $rootScope.subLocation = 'give';
 
@@ -29,11 +33,12 @@
 
     //click
     $scope.giveCard = function () {
-        $scope.userData.phoneId = $scope.phoneObj.phone.number;
+        $scope.userData.phoneId = $scope.phoneObj.phone.PhoneId;
         console.log($scope.userData);
         adminRequests.givePhoneOrder($scope.userData)
         .success(function (data) {
             console.log(data);
+            notyService.success(helper.getResponseMessage(data));
             $scope.userData.fullname = "";
             $scope.userData.username = "";
             $scope.userData.password = "";
@@ -51,6 +56,7 @@
         })
         .error(function (error) {
             console.log(error);
+            notyService.error(helper.getResponseMessage(error));
         })
     };
 
@@ -78,12 +84,13 @@
 
     //requests
     $scope.getAllFreePhones = function () {
-        adminRequests.getAllPhones('free')
+        adminRequests.getAllPhones({ "IsAvailable": true })
        .success(function (data) {
            $scope.availablePhones = data;
        })
        .error(function (error) {
            console.log(error);
+           notyService.error(helper.getResponseMessage(error));
        });
     };
 
@@ -94,6 +101,7 @@
        })
        .error(function (error) {
            console.log(error);
+           notyService.error(helper.getResponseMessage(error));
        });
     };
 
@@ -104,6 +112,7 @@
         })
         .error(function (error) {
             console.log(error);
+            notyService.error(helper.getResponseMessage(error));
         });
     };
 
@@ -116,6 +125,7 @@
            })
            .error(function (error) {
                console.log(error);
+               notyService.error(helper.getResponseMessage(error));
            });
         } else {
             if ($scope.users.length === 0) { //this prevent onclick to make request, the request is made only ones
@@ -125,6 +135,7 @@
                 })
                 .error(function (error) {
                     console.log(error);
+                    notyService.error(helper.getResponseMessage(error));
                 });
             }
         }
@@ -132,10 +143,10 @@
 
     $scope.onSelect = function (user, $model, $label) {
         $scope.user = user;
-        $scope.userData.fullname = user.fullName;
-        $scope.jobTitleName = user.jobTitle;
-        $scope.departmentName = user.departmentName;
-        $scope.userData.userId = user.id;
+        $scope.userData.fullname = user.FullName;
+        $scope.jobTitleName = user.JobTitle;
+        $scope.departmentName = user.DepartmentName;
+        $scope.userData.userId = user.Id;
         console.log(user);
     };
 

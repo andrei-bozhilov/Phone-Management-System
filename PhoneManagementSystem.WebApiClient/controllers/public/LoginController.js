@@ -1,10 +1,10 @@
 ﻿/// <reference path="../../services/requester.js" />
 angular.module('app')
 
-.controller('LoginController', function ($scope,$rootScope, $location, userRequests, userSession, notyService) {   
+.controller('LoginController', function ($scope, $rootScope, $location, userRequests, userSession, notyService, helper) {
 
     if (userSession.getCurrentUser()) {
-        $location.path('user/home');        
+        $location.path('user/home');
     }
 
     $scope.username = 'admin';
@@ -17,8 +17,8 @@ angular.module('app')
             $location.path('user/home');
             notyService.success("Login successfully.");
         })
-        .error(function (error) {          
-            notyService.error("Login error: " + error.Message);
+        .error(function (error) {
+            notyService.error("Login error: Invalid username or password");
             console.log(error);
         });
     };

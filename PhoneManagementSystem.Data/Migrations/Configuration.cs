@@ -11,6 +11,7 @@ namespace PhoneManagementSystem.Data.Migrations
     using Microsoft.AspNet.Identity;
 
     using PhoneManagementSystem.Models;
+    using PhoneManagementSystem.Commons;
 
 
 
@@ -158,7 +159,7 @@ namespace PhoneManagementSystem.Data.Migrations
                     Email = username + "@gmail.com",
                     EmployeeNumber = ++i,
                     IsActive = true,
-                    Department = departments[this.random.Next(0,departments.Count())],
+                    Department = departments[this.random.Next(0, departments.Count())],
                     JobTitle = jobTitles[this.random.Next(0, jobTitles.Count())]
                 };
 
@@ -176,7 +177,7 @@ namespace PhoneManagementSystem.Data.Migrations
 
             // Create "Administrator" role
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-            var roleCreateResult = roleManager.Create(new IdentityRole("Administrator"));
+            var roleCreateResult = roleManager.Create(new IdentityRole(GlobalConstants.AdminRole));
             if (!roleCreateResult.Succeeded)
             {
                 throw new Exception(string.Join("; ", roleCreateResult.Errors));

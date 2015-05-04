@@ -19,15 +19,16 @@
                                     <div class="form-group">
                                         <label for="departmentId">Department:</label>{{departmentId}}
                                         <select class="form-control" ng-model="userData.departmentId" id="departmentId"
-                                                ng-options="department.id as department.name for department in departments"
+                                                ng-options="department.Id as department.Name for department in departments"
                                                 ng-change="changeDepartment(userData.departmentId)">
                                             <option value="">(Choose department)</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
+
                                         <label for="phone">Phone:</label>
                                         <select class="form-control" ng-model="phoneObj.phone" id="phone"
-                                                ng-options="availablePhone.number for availablePhone in availablePhones">
+                                                ng-options="availablePhone.PhoneId for availablePhone in availablePhones">
                                             <option value="">(Choose number)</option>
                                         </select>
                                     </div>
@@ -49,7 +50,7 @@
                                     <div class="form-group">
                                         <label for="jobTitleId">Job Title:</label>
                                         <select class="form-control" ng-model="userData.jobTitleId" id="jobTitleId"
-                                                ng-options="jobTitle.id as jobTitle.jobTitleName for jobTitle in jobTitles"
+                                                ng-options="jobTitle.Id as jobTitle.Name for jobTitle in jobTitles"
                                                 ng-change="changeJobTitle(userData.jobTitleId)">
                                             <option value="">(Choose job title)</option>
                                         </select>
@@ -70,12 +71,12 @@
                                     <label for="fullname">User's full name:</label>
                                     <input type="text" ng-model="fullname" id="fullname" ng-click="getAllUsers()"
                                            typeahead-on-select='onSelect($item, $model, $label)'
-                                           typeahead="user.fullName for user in users | filter:$viewValue | limitTo:8" class="form-control">
+                                           typeahead="user.FullName for user in users | filter:$viewValue | limitTo:8" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Phone:</label>
                                     <select class="form-control" ng-model="phoneObj.phone"
-                                            ng-options="availablePhone.number for availablePhone in availablePhones">
+                                            ng-options="availablePhone.PhoneId for availablePhone in availablePhones">
                                         <option value="">(Choose number)</option>
                                     </select>
                                 </div>
@@ -85,17 +86,17 @@
                             <form>
                                 <div class="form-group">
                                     <label>Department:</label>
-                                    <input type="text" ng-model="user.departmentName" class="form-control" disabled>
+                                    <input type="text" ng-model="user.DepartmentName" class="form-control" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label>Job title:</label>
-                                    <input type="text" ng-model="user.jobTitle" class="form-control" disabled>
+                                    <input type="text" ng-model="user.JobTitle" class="form-control" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label>Is active:</label>
                                     {{user.isActive}}
-                                    <input type="radio" ng-model="user.isActive" ng-value="true" disabled><label>Yes</label>
-                                    <input type="radio" ng-model="user.isActive" ng-value="false" disabled><label>No</label>
+                                    <input type="radio" ng-model="user.IsActive" ng-value="true" disabled><label>Yes</label>
+                                    <input type="radio" ng-model="user.IsActive" ng-value="false" disabled><label>No</label>
                                     <div class="form-group">
                                         <div class="btn btn-primary" ng-click="giveCard()">Give card</div>
                                     </div>

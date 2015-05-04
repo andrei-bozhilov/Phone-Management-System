@@ -1,31 +1,31 @@
 ﻿namespace PhoneManagementSystem.WebApi.Controllers
 {
     using System;
-    using System.IO;
-    using System.Collections.Generic;
     using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
     using System.Linq;
-    using System.Net;
-    using System.Net.Http;
     using System.Web.Http;
-    using System.Threading;
     using System.Threading.Tasks;
     using System.Text;
+    using System.Net;
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
+    using LinqKit;
+
+    using PhoneManagementSystem.Commons;
     using PhoneManagementSystem.Data;
     using PhoneManagementSystem.Models;
-    using PhoneManagementSystem.WebApi.Models.Admin;
-    using PhoneManagementSystem.WebApi.Models.User;
+    using PhoneManagementSystem.WebApi.BindingModels.Admin;
+    using PhoneManagementSystem.WebApi.BindingModels.User;
+    using PhoneManagementSystem.WebApi.DataModels;
 
-
-    [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = GlobalConstants.AdminRole)]
     [RoutePrefix("api/admin")]
     public class AdminController : BaseApiController
     {
+        private ApplicationUserManager userManager;
+
         public AdminController(IPhoneSystemData data)
             : base(data)
         {
@@ -37,8 +37,6 @@
             this.userManager = new ApplicationUserManager(new UserStore<User>(new ApplicationDbContext()));
         }
 
-        private ApplicationUserManager userManager;
-
         public ApplicationUserManager UserManager
         {
             get
@@ -47,56 +45,6 @@
             }
         }
 
-        [HttpGet]
-        [Route("Phones")]
-        public IHttpActionResult GetPhones([FromUri] AdminGetPhonesBindinModel model)
-        {
-            if (model == null)
-            {
-                model = new AdminGetPhonesBindinModel();
-            }
-
-            if (!ModelState.IsValid)
-            {
-                return this.BadRequest(ModelState);
-            }
-
-            var phones = this.Data.Phones.All().Include(p => p.PhoneNumberOrders);
-
-            if (model.PhoneStatus.HasValue)
-            {
-                phones = phones.Where(p => p.PhoneStatus == model.PhoneStatus.Value);
-            }
-
-            var phoneToReturn = phones.Select(p => new
-            {
-                number = p.PhoneId,
-                phoneStatus = p.PhoneStatus.ToString(),
-                hasRouming = p.HasRouming,
-                creditLimit = p.CreditLimit,
-                cardType = p.CardType.ToString(),
-                userInfo = (p.PhoneStatus == PhoneStatus.Free) ? new
-                {
-                    username = "",
-                    fullname = "",
-                    jobTitle = "",
-                    department = ""
-
-
-                } : p.PhoneNumberOrders.OrderByDescending(order => order.ActionDate).Select(user =>
-                    new
-                    {
-                        username = user.User.UserName,
-                        fullname = user.User.FullName,
-                        jobTitle = user.User.JobTitle.Name,
-                        department = user.User.Department.Name,
-                    }
-                ).FirstOrDefault()
-
-            }).OrderBy(x => x.userInfo.username).ToList();
-
-            return this.Ok(phoneToReturn);
-        }
 
         [NonAction]
         public async Task<string> RegisterUser(RegisterUserBindingModel model)
@@ -143,22 +91,131 @@
 
             return user.Id;
         }
-
         [HttpGet]
         [Route("Users")]
-        public IHttpActionResult GetAllUsers([FromUri]AdminGetAllUsersBindingModel model)
+        public IHttpActionResult GetAllUsers()
+        {
+            var users = this.Data.Users.All()
+                .OrderBy(u => u.UserName)
+                .Select(UserDataModel.FromUser);
+
+            return this.Ok(users);
+        }
+
+        [HttpGet]
+        [Route("Users/UserInfo")]
+        public IHttpActionResult GetUserWithPhoneInfo([FromUri]AdminGetUserWithPhoneInfoBindingModel model)
         {
             if (model == null)
             {
-                model = new AdminGetAllUsersBindingModel();
+                return this.BadMessageRequest("Invalid request. You should pass phone number or user's full name");
+            }
+
+            string userId = null;
+
+            if (!string.IsNullOrWhiteSpace(model.FullName))
+            {
+                userId = this.Data.Users.All()
+                    .Where(u => u.FullName == model.FullName)
+                    .Select(u => u.Id)
+                    .FirstOrDefault();
+
+                this.CheckObjectForNull(userId, "user", userId);
+
+                var takePhoneDate = this.Data.PhoneNumberOrders.All()
+                    .Where(o => o.PhoneId == model.Phone
+                        && (o.PhoneAction == PhoneAction.GiveBackPhone
+                        || o.PhoneAction == PhoneAction.GetPhoneForPrivateUse))
+                    .OrderByDescending(o => o.ActionDate)
+                    .Select(o => o.ActionDate)
+                    .FirstOrDefault();
+
+                var giveBackPhoneDate = this.Data.PhoneNumberOrders.All()
+                    .Where(o => o.PhoneId == model.Phone && o.PhoneAction == PhoneAction.GiveBackPhone)
+                    .OrderByDescending(o => o.ActionDate)
+                    .Select(o => o.ActionDate)
+                    .FirstOrDefault();
+
+                if (takePhoneDate < giveBackPhoneDate)
+                {
+                    return this.BadRequest("This phone is turn back and it's not have been taken by no one.");
+                }
+            }
+            else if (!string.IsNullOrWhiteSpace(model.Phone))
+            {
+                var takePhoneDate = this.Data.PhoneNumberOrders.All()
+                     .Where(o => o.PhoneId == model.Phone && o.PhoneAction == PhoneAction.TakePhone)
+                     .OrderByDescending(o => o.ActionDate)
+                     .Select(o => o.ActionDate)
+                     .FirstOrDefault();
+
+                var giveBackPhoneDate = this.Data.PhoneNumberOrders.All()
+                    .Where(o => o.PhoneId == model.Phone
+                        && (o.PhoneAction == PhoneAction.GiveBackPhone
+                        || o.PhoneAction == PhoneAction.GetPhoneForPrivateUse))
+                    .OrderByDescending(o => o.ActionDate)
+                    .Select(o => o.ActionDate)
+                    .FirstOrDefault();
+
+                if (takePhoneDate < giveBackPhoneDate)
+                {
+                    return this.BadRequest("This phone is turn back and it's not have been taken by no one.");
+                }
+
+                userId = this.Data.PhoneNumberOrders.All()
+                    .Where(o => o.PhoneId == model.Phone && o.PhoneAction == PhoneAction.TakePhone)
+                    .OrderByDescending(o => o.ActionDate)
+                    .Select(o => o.UserId)
+                    .FirstOrDefault();
+
+                this.CheckObjectForNull(userId, "user", userId);
+            }
+
+            var user = this.Data.Users.All()
+                .Where(u => u.Id == userId)
+                .Select(UserInfoDataModel.FromUser)
+                .FirstOrDefault();
+
+            var phones = this.Data.Phones.All()
+                .Where(p => p.PhoneNumberOrders.Any(po => po.User.Id == userId))
+                .Select(PhoneInfoDataModel.FromPhone);
+
+            var orders = this.Data.PhoneNumberOrders.All()
+                .Where(o => o.UserId == userId)
+                .Select(OrderDataModel.FromOrder);
+
+            return this.Ok(new
+            {
+                user = user,
+                phones = phones,
+                orders = orders
+            });
+        }
+
+
+        [HttpGet]
+        [Route("Users/Paging")]
+        public IHttpActionResult GetAllUsersWithPaging([FromUri]AdminGetUsersBindingModel model)
+        {
+            if (model == null)
+            {
+                model = new AdminGetUsersBindingModel();
             }
 
             if (!ModelState.IsValid)
             {
-                return this.BadRequest(ModelState);
+                return this.BadRequest(this.ModelState);
             }
 
             var users = this.Data.Users.All();
+
+            if (!string.IsNullOrWhiteSpace(model.Search))
+            {
+                users = users.Where(u => u.UserName.Contains(model.Search))
+                    .Union(users.Where(u => u.FullName.Contains(model.Search)))
+                    .Union(users.Where(u => u.JobTitle.Name.Contains(model.Search)))
+                    .Union(users.Where(u => u.Department.Name.Contains(model.Search)));
+            }
 
             if (model.DepartmentId.HasValue)
             {
@@ -173,23 +230,20 @@
             if (model.IsAdmin.HasValue)
             {
                 var adminRoleId = this.Data.UserRoles.All()
-                .Where(r => r.Name == "Administrator")
-                .Select(r => r.Id).FirstOrDefault();
+                    .Where(r => r.Name == GlobalConstants.AdminRole)
+                    .Select(r => r.Id).FirstOrDefault();
 
-                users = users.Where(u => u.Roles.Any(r => r.RoleId == adminRoleId));
+                if (model.IsAdmin.Value)
+                {
+                    users = users.Where(u => u.Roles.Any(r => r.RoleId == adminRoleId));
+                }
+                else
+                {
+                    users = users.Where(u => !u.Roles.Any(r => r.RoleId == adminRoleId));
+                }
             }
 
-            var userToReturn = users.Select(x => new
-            {
-                id = x.Id,
-                userName = x.UserName,
-                fullName = x.FullName,
-                jobTitle = x.JobTitle.Name,
-                departmentName = x.Department.Name,
-                isActive = x.IsActive
-            });
-
-            return Ok(userToReturn);
+            return OKWithPagingAndFilter(model, users, UserDataModel.FromUser);
         }
 
         [HttpGet]
@@ -208,32 +262,51 @@
 
             var orders = this.Data.PhoneNumberOrders.All();
 
-            if (model.PhoneAction.HasValue)
+            if (!string.IsNullOrWhiteSpace(model.PhoneAction))
             {
-                orders = orders.Where(x => x.PhoneAction == model.PhoneAction.Value);
+                var phoneActions = model.PhoneAction.Split('|');
+                PhoneAction status;
+
+                // http://stackoverflow.com/questions/782339/how-to-dynamically-add-or-operator-to-where-clause-in-linq
+                var searchPredicate = PredicateBuilder.False<PhoneNumberOrder>();
+
+                foreach (var phoneAction in phoneActions)
+                {
+                    if (Enum.TryParse<PhoneAction>(phoneAction, out status))
+                    {
+                        var closureVariable = status;
+                        searchPredicate =
+                          searchPredicate.Or(o => o.PhoneAction == closureVariable);
+                    }
+                    else
+                    {
+                        return this.Content(HttpStatusCode.BadRequest, new { Message = "Invalid phone action." });
+                    }
+                }
+
+                orders = orders.AsExpandable().Where(searchPredicate);
             }
 
-            if (model.AdminId != null)
+            if (!string.IsNullOrWhiteSpace(model.Search))
             {
-                orders = orders.Where(x => x.AdminId == model.AdminId);
+                orders = orders.Where(o => o.User.UserName.Contains(model.Search))
+                    .Union(orders.Where(o => o.User.FullName.Contains(model.Search)))
+                    .Union(orders.Where(o => o.Phone.PhoneId.Contains(model.Search)))
+                    .Union(orders.Where(o => o.Admin.UserName.Contains(model.Search)))
+                    .Union(orders.Where(o => o.Admin.FullName.Contains(model.Search)));
             }
 
-            if (model.UserId != null)
+            if (model.FromDate.HasValue)
             {
-                orders = orders.Where(x => x.UserId == model.UserId);
+                orders = orders.Where(o => o.ActionDate >= model.FromDate.Value);
             }
 
-            var orderToReturn = orders.OrderByDescending(o => o.ActionDate).Select(o => new
+            if (model.ToDate.HasValue)
             {
-                orderId = o.Id,
-                userName = o.User.FullName,
-                phone = o.Phone.PhoneId,
-                admin = o.Admin.UserName,
-                date = o.ActionDate,
-                action = o.PhoneAction.ToString()
-            }).ToList();
+                orders = orders.Where(o => o.ActionDate <= model.ToDate.Value);
+            }
 
-            return Ok(orderToReturn);
+            return this.OKWithPagingAndFilter(model, orders, OrderDataModel.FromOrder);
         }
 
         [HttpPost]
@@ -332,14 +405,14 @@
                 AdminId = User.Identity.GetUserId()
             };
 
-            var phoneToGive = this.Data.Phones.Find(model.PhoneId).PhoneStatus = PhoneStatus.Taken;
+            var phoneToGive = this.Data.Phones.GetById(model.PhoneId).PhoneStatus = PhoneStatus.Taken;
             this.Data.PhoneNumberOrders.Add(order);
 
             this.Data.SaveChanges();
 
             return Ok(new
             {
-                message = "Order is successful"
+                Message = "Order is successful"
             });
         }
 

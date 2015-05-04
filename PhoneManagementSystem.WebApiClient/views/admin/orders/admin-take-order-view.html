@@ -7,30 +7,64 @@
                     <div class="form-group">
                         <label for="fullname">User's full name:</label>
                         <input type="text" ng-model="fullname" id="fullname" ng-click="getAllUsers()"
-                               typeahead-on-select='onSelect($item, $model, $label)'
-                               typeahead="user.fullName for user in users | filter:$viewValue | limitTo:8" class="form-control">
+                               typeahead="user.FullName for user in users | filter:$viewValue | limitTo:10" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="phone">Phone:</label>
-                        <select class="form-control" ng-model="phoneObj.phone"
-                                ng-options="availablePhone.number for availablePhone in availablePhones">
-                            <option value="">(Choose number)</option>
-                        </select>
+                        <input type="text" ng-model="phone" id="phone" ng-click="getAllPhones()"
+                               typeahead="phone.PhoneId for phone in phones | filter:$viewValue | limitTo:10" class="form-control">
                     </div>
                     <div class="form-group">
+                        <div class="btn btn-primary" ng-click="search()">Search</div>
                         <div class="btn btn-primary" ng-click="takeCard()">Take card</div>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-
     <h2>User's info</h2>
     <div class="panel app-panel">
-        <div class="panel-body">
-            Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+        <div class="panel-body bg-warning">
+            <div class="row">
+                <h2><span class="label label-info">User</span></h2>
+                <div class="col-md-12">
+                    <h2>{{userInfo.user.FullName}}</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="(key,val) in userInfo.user">
+                            <strong>{{key}}:</strong>
+                            <span class="label label-success"> {{val}} </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <h2><span class="label label-primary">Phones</span></h2>
+                <div class="col-md-{{12/(userInfo.phones.length)}}"
+                     ng-repeat="phone in userInfo.phones">
+                    <h2>{{phone.Number}}</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="(key,value) in phone">
+                            <strong>{{key}}:</strong>
+                            <em> {{value}} </em>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <h2><span class="label label-danger">Orders</span></h2>
+                <div class="col-md-{{12/(userInfo.orders.length)}}"
+                     ng-repeat="order in userInfo.orders">
+                    <h2>{{phone.Number}}</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="(key,value) in order">
+                            <strong>{{key}}:</strong>
+                            <em> {{value}} </em>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -29,6 +29,8 @@
 
         public DateTime? AvailableAfter { get; set; }
 
+        public DateTime CreatedAt { get; set; }
+
         public virtual ICollection<PhoneNumberOrder> PhoneNumberOrders
         {
             get { return this.phoneNumberOrders; }

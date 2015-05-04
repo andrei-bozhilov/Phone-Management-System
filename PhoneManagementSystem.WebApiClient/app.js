@@ -42,35 +42,17 @@
         controller: 'AdminTakeOrderController'
     })
 
-    .when('/admin/table-manage/phones', {
-        templateUrl: 'views/admin/table-manage/admin-phones-view.html',
-        controller: 'AdminPhonesController'
+    .when('/admin/table-manage/:table', {
+        templateUrl: 'views/admin/table-manage/admin-tables-view.html',
+        controller: 'AdminTableManageController'
     })
 
-    //.when('/admin/users', {
-    //    templateUrl: 'views/admin/admin-home-view.html',
-    //    controller: 'AdminUsersController'
-    //})
+    .when('/admin/table-manage/:table/:id', {
+        templateUrl: 'views/admin/table-manage/admin-tables-item-view.html',
+        controller: 'AdminTableItemManageController'
+    })
 
-    //.when('/admin/users/add', {
-    //    templateUrl: 'views/admin/admin-add-user-view.html',
-    //    controller: 'AdminAddUserController'
-    //})
 
-    //.when('/admin/users/edit', {
-    //    templateUrl: 'views/admin/admin-edit-user-view.html',
-    //    controller: 'AdminEditUserController'
-    //})
-
-    //.when('/admin/users/delete', {
-    //    templateUrl: 'views/admin/admin-delete-user-view.html',
-    //    controller: 'AdminDeleteUserController'
-    //})
-
-    //.when('/admin/departments', {
-    //    templateUrl: 'views/admin/admin-home-view.html',
-    //    controller: 'AdminDepartmentsController'
-    //})
 }])
 
 .controller('WelcomeController', function ($location, userSession) {

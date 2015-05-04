@@ -6,7 +6,7 @@
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin;
 
-    using PhoneManagementSystem.WebApi.Models;
+    using PhoneManagementSystem.WebApi.BindingModels;
     using PhoneManagementSystem.Models;
     using PhoneManagementSystem.Data;
 

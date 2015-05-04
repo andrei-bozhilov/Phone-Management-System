@@ -4,6 +4,7 @@
     {
         TakePhone,
         GiveBackPhone,
-        GetPhoneForPriveteUse
+        GetPhoneForPrivateUse
     }
 }
+

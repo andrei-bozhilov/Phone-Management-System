@@ -13,26 +13,31 @@
                 <div class="panel-body">
                     <form>
                         <div class="form-group">
-                            <label for="adminId">Admin:</label>
-                            <select class="form-control" ng-model="request.adminId" id="adminId"
-                                    ng-options="department.id as department.name for department in departments"
-                                    ng-change="changeDepartment(userData.departmentId)">
-                                <option value="">(Choose department)</option>
-                            </select>
+                            <label for="search">Search:</label>
+                            <input type="text" class="form-control" name="search" ng-model="request.search" placeholder="Search" />
                         </div>
                         <div class="form-group">
-                            <label for="action">Action type:</label>
-                            <select class="form-control" ng-model="request.action" id="action"
-                                    ng-options="availablePhone.number for availablePhone in availablePhones">
-                                <option value="">(Choose number)</option>
-                            </select>
+                            <label for="actionType">Action type:</label>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="takePhone"> Take phone
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="giveBackPhone"> Give back phone
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="takeForPrivateUse"> Take phone for private use
+                                </label>
+                            </div>
                         </div>
-
-
                         <div class="form-group">
                             <label for="phone">From:</label>
                             <p class="input-group">
-                                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="request.fromDate" is-open="openedFrom" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                <input type="text" class="form-control" datepicker-popup="{{datepicker.format}}" ng-model="request.fromDate" is-open="openedFrom" min-date="minDate" datepicker-options="datepicker.dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
                                 <span class="input-group-btn">
                                     <button type="button" class="btn btn-default" ng-click="openFrom($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                                 </span>
@@ -41,13 +46,14 @@
                         <div class="form-group">
                             <label for="phone">To:</label>
                             <p class="input-group">
-                                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="request.toDate" is-open="openedTo" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                <input type="text" class="form-control" datepicker-popup="{{datepicker.format}}" ng-model="request.toDate" is-open="openedTo" min-date="minDate" datepicker-options="datepicker.dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
                                 <span class="input-group-btn">
                                     <button type="button" class="btn btn-default" ng-click="openTo($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                                 </span>
                             </p>
                         </div>
                         <div class="form-group">
+                            <div class="btn btn-warning pull-left" ng-click="clearFilter()">Clear</div>
                             <div class="btn btn-primary pull-right" ng-click="getOrdersWithFilter()">Filter</div>
                         </div>
                         <div class="clearfix"></div>
@@ -58,54 +64,9 @@
     </div>
     <!--Drop down menu for filtering END-->
     <div class="panel">
-        <div class="scrollable-area">
-            <table class="table table-bordered table-hover table-striped">
-                <thead>
-                    <tr>
-                        <th>
-                            Id
-                        </th>
-                        <th>
-                            Username
-                        </th>
-                        <th>
-                            Phone
-                        </th>
-                        <th>
-                            AdminUser
-                        </th>
-                        <th>
-                            Date
-                        </th>
-                        <th>
-                            Action
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="order in orders">
-                        <td>
-                            {{order.orderId}}
-                        </td>
-                        <td>
-                            {{order.userName}}
-                        </td>
-                        <td>
-                            {{order.phone}}
-                        </td>
-                        <td>
-                            {{order.admin}}
-                        </td>
-                        <td>
-                            {{order.date | date:'MM/dd/yyyy @ HH:mm'}}
-                        </td>
-                        <td>
-                            {{order.action}}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <table-grid datasource="orders"></table-grid>
+        <pagination total-items="pagination.bigTotalItems" ng-model="pagination.bigCurrentPage" max-size="pagination.maxSize" class="pagination-sm" boundary-links="true" ng-click="pagination.pageChanged(getOrders, request)"></pagination>
     </div>
 </div>
+
 

@@ -1,0 +1,29 @@
+﻿<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th ng-repeat="header in datasource.headers">{{header}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="row in datasource.result">
+            <td ng-repeat="(key, order) in datasource.order">
+                <span ng-if="datasource.types[key] == 'DateTime'">
+                    {{row[order] | date:'dd MMM yyyy @ HH:mm'}}
+                </span>
+                <span ng-if="datasource.types[key] == 'String' || datasource.types[key] == 'Int32'
+                      || datasource.types[key] == 'Int64'">
+                    {{row[order]}}
+                </span>
+                <span ng-if="datasource.types[key] == 'Boolean'">
+                    {{row[order] | true_false}}
+                </span>
+            </td>
+        </tr>
+        <!--This will insure, that table always will has 10 rows-->
+        <tr ng-repeat="n in [1,2,3,4,5,6,7,8,9,10] track by $index" ng-show="datasource.result.length < {{n}}">
+                <td style="color:white">{{0}}</td>
+            <td ng-repeat="header in datasource.headers" ng-if="$index > 0"></td>
+        </tr>
+    </tbody>
+</table>
+

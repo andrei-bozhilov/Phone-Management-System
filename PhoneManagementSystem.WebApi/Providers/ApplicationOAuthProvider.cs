@@ -13,7 +13,7 @@ namespace PhoneManagementSystem.WebApi.Providers
     using Microsoft.Owin.Security.Cookies;
     using Microsoft.Owin.Security.OAuth;
 
-    using PhoneManagementSystem.WebApi.Models;
+    using PhoneManagementSystem.WebApi.BindingModels;
     using PhoneManagementSystem.Models;
     using PhoneManagementSystem.Data;
 

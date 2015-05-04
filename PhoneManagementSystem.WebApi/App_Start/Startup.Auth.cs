@@ -9,7 +9,7 @@ using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using PhoneManagementSystem.WebApi.Providers;
-using PhoneManagementSystem.WebApi.Models;
+using PhoneManagementSystem.WebApi.BindingModels;
 using PhoneManagementSystem.Data;
 
 namespace PhoneManagementSystem.WebApi
